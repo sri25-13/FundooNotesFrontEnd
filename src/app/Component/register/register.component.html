@@ -1,0 +1,68 @@
+<div class="card">
+    <h1>FUNDOO NOTE</h1>
+    <div>
+        <div>
+            <mat-card-title-group>
+                <mat-card-title >
+                    <h3>Create new account </h3>
+                </mat-card-title>
+            </mat-card-title-group>
+            <br>
+        </div>
+        <div >
+         <div class="fname">
+            <mat-form-field  appearance="outline"  >
+                <mat-label > First Name</mat-label >
+              <input  matInput [formControl]="firstName" placeholder="firstname"  >
+              <mat-error *ngIf="firstName.hasError('required')">required</mat-error>
+              <mat-error *ngIf="firstName.hasError('minlength')">Minimum 3 characters</mat-error>
+               <mat-error *ngIf="firstName.hasError('pattern') && !firstName.hasError('minlength')"> Name must consist only characters </mat-error>
+            </mat-form-field>
+        </div>
+          <div class="lname">
+            <mat-form-field  appearance="outline" >
+                <mat-label >Last Name</mat-label>
+              <input matInput [formControl]="lastName" placeholder="lastname" >
+              <mat-error *ngIf="lastName.hasError('required')"> *required </mat-error>
+               <mat-error *ngIf="lastName.hasError('minlength')">Minimum 4 characters </mat-error>
+               <mat-error *ngIf="lastName.hasError('pattern') && !lastName.hasError('minlength')">Name must consist only characters </mat-error>
+            </mat-form-field>
+        </div> 
+          <div class="email">
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Email</mat-label>
+              <input  matInput [formControl]="email" placeholder="abc@gmail.com" >
+              <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">Invalid email </mat-error> 
+              <mat-error *ngIf="email.hasError('required')"> Email is required </mat-error>
+            </mat-form-field>
+        </div>
+          <div>
+            <mat-form-field class="password" appearance="outline" >
+                <mat-label>Password</mat-label>
+              <input matInput [formControl]="password" placeholder="password" >
+              <mat-error *ngIf="password.hasError('required')">*required</mat-error> 
+              <mat-error *ngIf="password.hasError('minlength')"> Minimum length 6 </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="cpwd">
+          <mat-form-field class="confirmpassword" appearance="outline" >
+              <mat-label>Confirm Password</mat-label>
+            <input matInput [formControl]="confirmpassword" placeholder="password" >
+            <mat-error *ngIf="confirmpassword.hasError('required')">*required</mat-error> 
+            <mat-error *ngIf="confirmpassword.hasError('minlength')"> Minimum length 6 and should match with password</mat-error>
+          </mat-form-field>
+      </div>
+      </div>
+          <div>
+            <button mat-raised-button color="primary" (click)="registration()">Register</button> 
+        </div>
+        <div class="login" >
+            <span>Already registered? <a href="login">Login</a></span>
+        </div>
+        <div class="facebook" >
+            <button mat-flat-button color="accent" >Login via Facebook</button>
+         </div>
+         
+         <div class="gmail" ><button mat-flat-button color="primary" >login via Gmail</button></div>
+    </div>
+</div>
