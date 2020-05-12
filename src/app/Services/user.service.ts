@@ -7,10 +7,14 @@ import { HttpClient} from '@angular/common/http';
 })
 export class UserService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient,private https:HttpClient) { }
 
   registration(values)
   {
     return this.http.post(environment.Url+'register',values);
+  }
+  login(values)
+  {
+    return this.https.post(environment.Url + 'login',values);
   }
 }

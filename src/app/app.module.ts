@@ -13,11 +13,17 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UserService } from './Services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { ForgotPasswordComponent } from './forgotPassword/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

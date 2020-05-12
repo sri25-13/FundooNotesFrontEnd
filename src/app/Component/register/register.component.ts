@@ -20,7 +20,6 @@ export class RegisterComponent implements OnInit {
      password = new FormControl('', [ Validators.required, Validators.minLength(6), ]);
      confirmpassword = new FormControl('', [ Validators.required, Validators.minLength(6),]);
   registration() {
-    debugger;
     let fname = new String(this.firstName.value);
     let lname = new String(this.lastName.value);
     let pwd = new String(this.password.value);
