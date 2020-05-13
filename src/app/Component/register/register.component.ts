@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
      password = new FormControl('', [ Validators.required, Validators.minLength(6), ]);
      confirmpassword = new FormControl('', [ Validators.required, Validators.minLength(6),]);
   registrationForm(){
-  debugger; 
+    debugger;
      let fname = new String(this.firstName.value);
      let lname = new String(this.lastName.value);
      let pwd = new String(this.password.value);
@@ -35,11 +35,11 @@ export class RegisterComponent implements OnInit {
       };
       this.service.registration(form).subscribe(
         (result) => {
-          this.snackBar.open('Registered Successfully', 'Dismiss', { duration: 2000 });
+          this.snackBar.open('Registered Successfully', 'Dismiss', { duration: 3000 });
         },
     
         (error) => {
-          this.snackBar.open('Registration Failed. invalid credentials', '', { duration: 2000 });
+          this.snackBar.open('Registration Failed. invalid credentials', '', { duration: 3000 });
       });
     }
   }

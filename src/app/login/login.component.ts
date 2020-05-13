@@ -19,11 +19,11 @@ export class LoginComponent implements OnInit {
     debugger;
     let pwd = new String(this.password.value);
     if (pwd.length >= 6  ) {
-      const form = {
+      const details = {
         password: this.password.value,
         email:this.email.value,
       };
-      this.service.login(form).subscribe(
+      this.service.Login(details).subscribe(
         (result) => {
           this.snackBar.open('login Successfull', 'Dismiss', { duration: 3000 });
         },

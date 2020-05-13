@@ -13,9 +13,17 @@ export class UserService {
   {
     return this.http.post(environment.Url+'register',values);
   }
-   login(value)
+   Login(value)
+   {
+     return this.http.post(environment.Url + 'login',value);
+   }
+   Forgot(val)
+   {
+     return this.http.put(environment.Url + 'forget',val);
+   }
+   Reset(data)
    {
      debugger;
-     return this.http.post(environment.Url + 'login',value);
+     return this.http.put(environment.Url +'reset',data)
    }
 }
