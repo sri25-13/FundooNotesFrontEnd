@@ -24,6 +24,6 @@ export class UserService {
    Reset(data)
    {
      debugger;
-     return this.http.put(environment.Url +'reset',data)
+     return this.http.put(environment.Url +'reset',data);
    }
 }

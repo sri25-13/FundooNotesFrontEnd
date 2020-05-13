@@ -11,29 +11,27 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ResetPasswordComponent implements OnInit {
 
   constructor(private service:UserService,private snackBar:MatSnackBar) { }
-  email = new FormControl('', [ Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'), ]);
  
-  password = new FormControl('', [ Validators.required, Validators.minLength(6), ]);
+  newpassword = new FormControl('', [ Validators.required, Validators.minLength(6), ]);
   confirmpassword = new FormControl('', [ Validators.required, Validators.minLength(6),]);
   ngOnInit() {
   }
  reset(){
    debugger;
-    let pwd = new String(this.password.value);
+    let pwd = new String(this.newpassword.value);
     if( pwd.length>=6)
     {
      const form = {
-       email:this.email.value,
-       password: this.password.value,
-       confirmpassword:this.confirmpassword.value
+       newpassword: this.newpassword.value,
+       confirmpassword:this.confirmpassword.value,
      };
      this.service.Reset(form).subscribe(
        (result) => {
-         this.snackBar.open('Registered Successfully', 'Dismiss', { duration: 3000 });
+         this.snackBar.open('Password reset has done', 'Dismiss', { duration: 3000 });
        },
    
        (error) => {
-         this.snackBar.open('Registration Failed. invalid credentials', '', { duration: 3000 });
+         this.snackBar.open('Invalid credentials', '', { duration: 3000 });
      });
    }
  }
