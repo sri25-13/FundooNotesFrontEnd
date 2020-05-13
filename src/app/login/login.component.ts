@@ -16,19 +16,21 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   login() {
+    debugger;
     let pwd = new String(this.password.value);
     if (pwd.length >= 6  ) {
       const form = {
         password: this.password.value,
+        email:this.email.value,
       };
       this.service.login(form).subscribe(
         (result) => {
-          console.log('result :', result);
-          this.snackBar.open('login Successfull', 'Dismiss', { duration: 2000 });
-        });
-    }
-        (_error: any) => {
-          this.snackBar.open('login Failed. invalid credentials', '', { duration: 2000 });
-      };
+          this.snackBar.open('login Successfull', 'Dismiss', { duration: 3000 });
+        },
+    
+        (error) => {
+          this.snackBar.open('login Failed. invalid credentials', '', { duration: 1000 });
+      });
   }
+ }
 }
