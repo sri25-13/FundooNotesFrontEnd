@@ -1,4 +1,5 @@
-<mat-card *ngIf="!Note2" class="card" (click)="note()">
+<div class="note">  
+      <mat-card (click)="open()"  *ngIf="!popup" class="card">
     <div class="takeNote">Take a note...
     <button mat-icon-button class="noteicon" matTooltip="New list">
         <mat-icon>check_box</mat-icon>
@@ -10,19 +11,19 @@
         <mat-icon>image</mat-icon>
       </button>
     </div>
-    
     </mat-card>
-    <mat-card *ngIf="!Note1" class="card">
+    <mat-card *ngIf="popup"  class="card">
         <div class="text">
-          <input type="text" class="notetext" placeholder="Title" [(ngModel)]="title">
-          <input class="notetext" type="text" placeholder="Take a note......" [(ngModel)]="description">
+          <input type="text" class="notetext" placeholder="Title" #title >
+          <input class="notetext" type="text" placeholder="Take a note......" #description >
         </div>
         <div class="box">
           <div class="bottomalign">
-            <app-icons></app-icons>
+            <!-- <app-icons></app-icons> -->
           </div>
           <div class=" cancelclass">
-            <button mat-button class="closecls" (click)="close()">Close</button>
+            <button mat-button class="closecls" (click)="close(title.value,description.value)">Close</button>
           </div>
         </div>
       </mat-card>
+    </div>
