@@ -1,0 +1,116 @@
+.page {
+    display: flex;
+  }
+  .icon{
+     margin-left: 5px;;
+  }
+  .sidename{
+    margin-left: 15px;
+  }
+  .sideNav {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    min-width: 56px;
+    cursor: pointer;
+  }
+  .image
+{
+  margin-left: 6px;
+}
+img{
+width:45px;
+height:45px;
+}
+  .listbutton .gridbutton{
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  }
+  .toolbar{
+      background-color: white;
+  }
+  .listgrid{
+    justify-content: right;
+    display: flex;
+    margin-top: 33px;
+    margin-left: 137px;
+    color:grey;
+  }
+  
+ 
+  .fundoo
+  {
+    padding-bottom: 9px;
+    color:grey;
+    margin-left: 17px;
+    text-size-adjust: 100px;
+  }
+  .search{
+    padding-left: 40px;
+  }
+  .searchBar
+  {
+    margin-left: 35px;
+  }
+  
+  .searchbar{
+    width: 750px;
+    border-radius: 5px;
+    padding-left: 25px;
+    height: 45px;
+    padding: 0px;
+    display:flex;
+    margin-top: 31px;
+    margin-left: 48px;
+    margin-bottom: 31px;
+  }
+  .searchbutton{
+    margin-top: 3px;
+    padding-top: 4px;
+  }
+  .searchinput{
+    outline: none;
+    border: none;
+    width: 560px;
+    margin-left: 20px;
+  }
+   .input {
+    width: 47em;
+    border-style: none;
+  }
+  
+  .example-container {
+    width: -400px;
+    height: 100vh;
+    
+  }
+  .sidenavdiv
+  {
+    border: transparent;
+    overflow-y: auto;
+  }
+  
+  .example-sidenav-content {
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+  .maindiv {
+    display: inline;
+  }
+  .list{
+    width: 255px;
+    overflow: hidden;
+    height: 95%;
+  }
+  .notes:hover {
+    display: flex;
+    background-color:whitesmoke;
+    border: transparent;
+    box-sizing: border-box;
+     border-radius: 0 25px 25px 0;
+     font-family: 'Google Sans',Roboto,Arial,sans-serif;
+     overflow: hidden;
+     width: 100%;
+  }

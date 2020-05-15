@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../Services/user.service';
+import { UserService } from '../Services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl, Validators } from '@angular/forms';
 

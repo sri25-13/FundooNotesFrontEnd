@@ -13,9 +13,15 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UserService } from './Services/user.service';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './Component/login/login.component';
-import { ForgotPasswordComponent } from './Component/forgotPassword/forgot-password.component';
-import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
+import { LoginComponent } from './login/login.component';
+import { ForgotPasswordComponent } from './forgotPassword/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,8 @@ import { ResetPasswordComponent } from './Component/reset-password/reset-passwor
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,12 @@ import { ResetPasswordComponent } from './Component/reset-password/reset-passwor
     ReactiveFormsModule,
    FormsModule,
    MatSnackBarModule,
-   HttpClientModule
+   HttpClientModule,
+   MatToolbarModule,
+   MatSidenavModule,
+   MatIconModule,
+   MatTooltipModule,
+   MatListModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
