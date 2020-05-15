@@ -12,7 +12,7 @@
           </div>
           <div class="searchBar">
             <mat-card class="searchbar">
-              <input class="searchinput" type="text" name="search" autocomplete="off" placeholder="Search ">
+              <input class="searchinput" type="text" name="search"  placeholder="Search ">
               <button class="searchutton" mat-icon-button>
               </button>
             </mat-card>
@@ -29,6 +29,7 @@
           <a mat-list-item class="notes">
             <mat-icon>emoji_objects</mat-icon>Notes
           </a> 
+        
           <a mat-list-item class="notes" >
             <mat-icon>notifications</mat-icon>Reminders
           </a>
@@ -51,6 +52,7 @@
         </mat-nav-list>
       </mat-drawer>
       <div>
+          <app-notes></app-notes>
       </div>
     </mat-drawer-container>
   </div>

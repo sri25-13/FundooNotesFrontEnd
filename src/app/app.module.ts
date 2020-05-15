@@ -22,6 +22,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatListModule} from '@angular/material/list';
+import { NotesComponent } from './Component/notes/notes.component';
+import{RouterModule,Router} from '@angular/router';
+import { IconsComponent } from './Component/icons/icons.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import {MatListModule} from '@angular/material/list';
     LoginComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    NotesComponent,
+    IconsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,9 @@ import {MatListModule} from '@angular/material/list';
    MatSidenavModule,
    MatIconModule,
    MatTooltipModule,
-   MatListModule
+   MatListModule,
+   MatMenuModule,
+   RouterModule.forRoot([])
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
