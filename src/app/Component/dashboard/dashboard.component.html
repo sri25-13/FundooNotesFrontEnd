@@ -20,17 +20,16 @@
           
         </div>
     </mat-toolbar>
-    <hr>
   </div>
   <div class="sidenavdiv">
     <mat-drawer-container class="example-container" autosize>
       <mat-drawer #drawer class="example-sidenav" mode="side">
         <mat-nav-list class="list">
-          <a mat-list-item class="notes">
+          <a mat-list-item class="notes" (click)="notes" >
             <mat-icon>emoji_objects</mat-icon>Notes
           </a> 
         
-          <a mat-list-item class="notes" >
+          <a mat-list-item class="notes"  >
             <mat-icon>notifications</mat-icon>Reminders
           </a>
           <div *ngFor="let lab of allLabels">
@@ -52,7 +51,7 @@
         </mat-nav-list>
       </mat-drawer>
       <div>
-          <app-notes></app-notes>
+          <app-addnote></app-addnote>
       </div>
     </mat-drawer-container>
   </div>

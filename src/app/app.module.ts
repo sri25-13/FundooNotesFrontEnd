@@ -22,10 +22,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatListModule} from '@angular/material/list';
-import { NotesComponent } from './Component/notes/notes.component';
 import{RouterModule,Router} from '@angular/router';
 import { IconsComponent } from './Component/icons/icons.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { DisplaynoteComponent } from './Component/displaynote/displaynote.component';
+import { AddnoteComponent } from './Component/addnote/addnote.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +36,9 @@ import {MatMenuModule} from '@angular/material/menu';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     DashboardComponent,
-    NotesComponent,
     IconsComponent,
+    DisplaynoteComponent,
+    AddnoteComponent,
     
   ],
   imports: [
