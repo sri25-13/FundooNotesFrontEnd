@@ -27,6 +27,7 @@ import { IconsComponent } from './Component/icons/icons.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { DisplaynoteComponent } from './Component/displaynote/displaynote.component';
 import { AddnoteComponent } from './Component/addnote/addnote.component';
+import { NotesComponent } from './Component/notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AddnoteComponent } from './Component/addnote/addnote.component';
     IconsComponent,
     DisplaynoteComponent,
     AddnoteComponent,
+    NotesComponent,
     
   ],
   imports: [
