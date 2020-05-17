@@ -17,9 +17,10 @@
         <input type="text" class="notetext" placeholder="Title" value="" #title >
         <input class="notetext" type="text" placeholder="Take a note......" value="" #description >
       </div>
+
       <div class="box">
         <div class="bottomalign">
-           <!-- <app-icons></app-icons>  -->
+         <app-icons></app-icons>   
         </div>
         <div class=" cancelclass">
           <button mat-button class="closecls" (click)="close(title.value,description.value)">Close</button>
