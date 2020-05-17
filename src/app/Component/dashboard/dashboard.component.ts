@@ -12,13 +12,13 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  this.activatedRoute.queryParams.subscribe(params => {
-    let page = params['page'] || '';
-  });
-}
+
+//   this.activatedRoute.queryParams.subscribe(params => {
+//     let page = params['page'] || '';
+//   });
+// }
    notes() {
      debugger;
-   this.route.navigate(['dashBoard/displaynote'], { queryParams: { page: 'notes' } });
+   this.route.navigate(['/notes']);
  }
 }

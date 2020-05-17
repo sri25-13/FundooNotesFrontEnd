@@ -61,9 +61,9 @@ import { NotesComponent } from './Component/notes/notes.component';
    MatTooltipModule,
    MatListModule,
    MatMenuModule,
-   RouterModule.forRoot([])
+   RouterModule.forRoot([]),
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
