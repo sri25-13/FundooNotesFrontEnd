@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +8,17 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private route:Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
   
+  this.activatedRoute.queryParams.subscribe(params => {
+    let page = params['page'] || '';
+  });
+}
+   notes() {
+     debugger;
+   this.route.navigate(['dashBoard/displaynote'], { queryParams: { page: 'notes' } });
+ }
 }
