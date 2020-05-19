@@ -1,7 +1,9 @@
-<mat-card *ngFor="let data of result;" class="box">
-     
-            {{data.title}}
-       
-            {{data.description}}
-       <app-icons></app-icons>
-</mat-card>
+<div class="display">
+    <mat-card *ngFor="let data of result;" class="box">
+        <div class="title"> {{data.title}} </div>
+        <div class="description"> {{data.description}} </div>
+        <div class="jc-space">
+            <app-icons></app-icons>
+        </div>
+    </mat-card>
+</div>
