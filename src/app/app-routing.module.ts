@@ -6,6 +6,7 @@ import { ForgotPasswordComponent } from './forgotPassword/forgot-password.compon
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NotesComponent } from './Component/notes/notes.component';
+import { AddnoteComponent } from './Component/addnote/addnote.component';
 
 const routes: Routes = [
   {path : 'register',component: RegisterComponent},
@@ -14,7 +15,7 @@ const routes: Routes = [
   {path : 'reset',component:ResetPasswordComponent},
   {path : 'dashboard',component:DashboardComponent,
   children:[
- {path : 'notes',component:NotesComponent}
+     {path : 'notes',component:NotesComponent,children:[{path:'add',component:AddnoteComponent}]}
    ]
  },
 ];

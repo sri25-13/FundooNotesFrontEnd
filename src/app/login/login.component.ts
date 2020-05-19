@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
         (result) => {
           this.snackBar.open('login Successfull', 'Dismiss', { duration: 3000 });
         },
-    
+        
         (error) => {
           this.snackBar.open('login Failed. invalid credentials', '', { duration: 1000 });
       });

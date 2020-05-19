@@ -25,33 +25,28 @@
     <mat-drawer-container class="example-container" autosize>
       <mat-drawer #drawer class="example-sidenav" mode="side">
         <mat-nav-list class="list">
-          <a mat-list-item class="notes" (click)="notes()" >
+          <a mat-button class="notes" [routerLink]="'notes'">
             <mat-icon>emoji_objects</mat-icon>Notes
           </a> 
-        
-          <a mat-list-item class="notes"  >
+        <br>
+          <button mat-button class="notes"  >
             <mat-icon>notifications</mat-icon>Reminders
-          </a>
-          <div *ngFor="let lab of allLabels">
-            <a mat-list-item>
-              <mat-icon>label_outline</mat-icon>
-            </a> 
-          </div>
-          <div>
-            <a mat-list-item class="notes" >
+          </button>
+          <br>
+          
+            <button mat-button class="notes" >
               <mat-icon>create</mat-icon>Edit Labels
-            </a>
-          </div>
-          <a mat-list-item class="notes" >
+            </button>
+          <br>
+          <button mat-button class="notes" >
             <mat-icon>archive</mat-icon>Archive
-          </a> 
-          <a mat-list-item class="notes" >
+          </button> 
+          <br>
+          <button mat-button class="notes" >
             <mat-icon>delete</mat-icon>Trash
-          </a> 
+          </button> 
         </mat-nav-list>
       </mat-drawer>
-      <div>
-          <app-addnote></app-addnote>
-      </div>
+      <router-outlet></router-outlet>
     </mat-drawer-container>
   </div>
