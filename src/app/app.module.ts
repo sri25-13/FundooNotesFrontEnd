@@ -28,6 +28,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { DisplaynoteComponent } from './Component/displaynote/displaynote.component';
 import { AddnoteComponent } from './Component/addnote/addnote.component';
 import { NotesComponent } from './Component/notes/notes.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { NotesComponent } from './Component/notes/notes.component';
    MatListModule,
    MatMenuModule,
    RouterModule.forRoot([]),
+   MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

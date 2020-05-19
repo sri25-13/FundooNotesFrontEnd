@@ -1,1 +1,7 @@
-<p>displaynote works!</p>
+<mat-card *ngFor="let data of result;" class="box">
+     
+            {{data.title}}
+       
+            {{data.description}}
+       <app-icons></app-icons>
+</mat-card>

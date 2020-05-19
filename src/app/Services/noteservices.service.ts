@@ -9,7 +9,11 @@ export class NoteservicesService {
   constructor(private http : HttpClient) { }
   createnote(values)
   {
-    debugger;
     return this.http.post(environment.Url+'AddNote',values);
+  }
+  getAllNotes()
+  {
+    debugger;
+    return this.http.get(environment.Url + 'getallnotes');
   }
 }

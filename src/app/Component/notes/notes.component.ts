@@ -7,19 +7,20 @@ import { NoteservicesService } from 'src/app/Services/noteservices.service';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
-  listOfNotes: ArrayBuffer;
+  listOfNotes: object;
 
   constructor(private service:NoteservicesService) { }
-getAllNote(event)
+getAllNote(event?)
 {
-  this.service.getAllNotes("getallnotes").subscribe(
+  this.service.getAllNotes().subscribe(
     response=>{
       this.listOfNotes=response;
-      console.log(response)
+      console.log(response);
     });
   
 }
   ngOnInit() {
+    this.getAllNote();
   }
 
 }

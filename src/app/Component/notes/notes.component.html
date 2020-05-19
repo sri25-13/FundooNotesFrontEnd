@@ -1,4 +1,3 @@
 
-
-    <app-addnote></app-addnote>
-<app-displaynote></app-displaynote>
+<app-addnote></app-addnote>
+<app-displaynote [result]="listOfNotes" (output)="getAllNote($event)"></app-displaynote>
