@@ -29,6 +29,7 @@ import { DisplaynoteComponent } from './Component/displaynote/displaynote.compon
 import { AddnoteComponent } from './Component/addnote/addnote.component';
 import { NotesComponent } from './Component/notes/notes.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { NoteservicesService } from './Services/noteservices.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import {MatDialogModule} from '@angular/material/dialog';
    RouterModule.forRoot([]),
    MatDialogModule,
   ],
-  providers: [],
+  providers: [UserService,NoteservicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

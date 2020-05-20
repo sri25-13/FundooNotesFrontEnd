@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteservicesService } from 'src/app/Services/noteservices.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-notes',
@@ -8,19 +9,18 @@ import { NoteservicesService } from 'src/app/Services/noteservices.service';
 })
 export class NotesComponent implements OnInit {
   listOfNotes: object;
-
-  constructor(private service:NoteservicesService) { }
-getAllNote(event?)
+  constructor(private service:NoteservicesService,private snackBar:MatSnackBar) { }
+getAllNote()
 {
   this.service.getAllNotes().subscribe(
     response=>{
       this.listOfNotes=response;
       console.log(response);
     });
-  
 }
   ngOnInit() {
     this.getAllNote();
   }
+
 
 }

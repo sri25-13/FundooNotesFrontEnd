@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteservicesService } from 'src/app/Services/noteservices.service';
 
@@ -9,9 +9,8 @@ import { NoteservicesService } from 'src/app/Services/noteservices.service';
 })
 export class AddnoteComponent implements OnInit {
   popup: boolean;
-
+  @Output() output:EventEmitter<any>=new EventEmitter();
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService) { }
-
   ngOnInit() {
   }
   open() {
@@ -31,6 +30,7 @@ export class AddnoteComponent implements OnInit {
      {
      this.service.createnote(form).subscribe(
       (result) => {
+        this.output.emit({name:'getAllNote'});
         this.snackBar.open('Note created', '', { duration: 3000 });
         this.submit();
       },

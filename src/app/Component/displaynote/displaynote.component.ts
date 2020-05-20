@@ -7,9 +7,7 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class DisplaynoteComponent implements OnInit {
 @Input() result:any;
-@Output() output:EventEmitter<any>=new EventEmitter();
   constructor() { }
-  ngOnInit() { 
-    this.output.emit(); 
+  ngOnInit(){ 
   }
 }

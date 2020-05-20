@@ -15,7 +15,7 @@ const routes: Routes = [
   {path : 'reset',component:ResetPasswordComponent},
   {path : 'dashboard',component:DashboardComponent,
   children:[
-     {path : 'notes',component:NotesComponent,children:[{path:'add',component:AddnoteComponent}]}
+     {path : 'notes',component:NotesComponent} 
    ]
  },
 ];

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteservicesService } from 'src/app/Services/noteservices.service';
 
@@ -8,10 +8,11 @@ import { NoteservicesService } from 'src/app/Services/noteservices.service';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
-  @Input() data;
+  @Input() result:any;
+  @Output() output:EventEmitter<any>=new EventEmitter();
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService,) { }
-
   ngOnInit() {
+    
   }
-  
-}
+    
+  }
