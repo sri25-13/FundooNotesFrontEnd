@@ -17,8 +17,5 @@ export class DashboardComponent implements OnInit {
 //     let page = params['page'] || '';
 //   });
 // }
-   notes() {
-     debugger;
-   this.route.navigate(['/displaynote']);
- }
+  
 }
