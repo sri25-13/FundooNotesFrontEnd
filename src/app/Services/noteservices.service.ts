@@ -15,8 +15,8 @@ export class NoteservicesService {
   {
     return this.http.get(environment.Url + 'getallnotes');
   }
-  getnote(id)
+  archeive(id)
   {
-    return this.http.get(environment.Url + 'getnote',id);
+    return this.http.get(environment.Url + 'IsArchive',id );
   }
 }    

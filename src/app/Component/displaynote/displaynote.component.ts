@@ -8,12 +8,15 @@ import { NoteservicesService } from 'src/app/Services/noteservices.service';
 })
 export class DisplaynoteComponent implements OnInit {
 @Input() result:any;
+data:object;
   constructor(private service:NoteservicesService) { }
+  
   ngOnInit(){ 
+    this.getID(this.data);
   }
   getID(data)
-  {
-    debugger;
-this.service.getnote(data);
+ {
+ debugger;
+ console.log(data.noteId);
   }
 }
