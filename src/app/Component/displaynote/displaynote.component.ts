@@ -10,4 +10,8 @@ export class DisplaynoteComponent implements OnInit {
   constructor() { }
   ngOnInit(){ 
   }
+  getId(data)
+  {
+
+  }
 }
