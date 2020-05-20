@@ -21,6 +21,4 @@ getAllNote()
   ngOnInit() {
     this.getAllNote();
   }
-
-
 }

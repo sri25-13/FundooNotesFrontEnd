@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import { NoteservicesService } from 'src/app/Services/noteservices.service';
 @Component({
   selector: 'app-displaynote',
   templateUrl: './displaynote.component.html',
@@ -7,11 +8,12 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class DisplaynoteComponent implements OnInit {
 @Input() result:any;
-  constructor() { }
+  constructor(private service:NoteservicesService) { }
   ngOnInit(){ 
   }
-  getId(data)
+  getID(data)
   {
-
+    debugger;
+this.service.getnote(data);
   }
 }

@@ -19,4 +19,4 @@ export class NoteservicesService {
   {
     return this.http.get(environment.Url + 'getnote',id);
   }
-}
+}    

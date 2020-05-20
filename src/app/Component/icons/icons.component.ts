@@ -8,9 +8,13 @@ import { NoteservicesService } from 'src/app/Services/noteservices.service';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
+  @Input() input:any;
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService,) { }
   ngOnInit() {
     
   }
-    
+    isArcheive()
+    {
+
+    }
   }
