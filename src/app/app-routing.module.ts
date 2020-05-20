@@ -6,7 +6,6 @@ import { ForgotPasswordComponent } from './forgotPassword/forgot-password.compon
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NotesComponent } from './Component/notes/notes.component';
-import { AddnoteComponent } from './Component/addnote/addnote.component';
 
 const routes: Routes = [
   {path : 'register',component: RegisterComponent},
