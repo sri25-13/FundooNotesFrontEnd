@@ -8,8 +8,6 @@ import { NoteservicesService } from 'src/app/Services/noteservices.service';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
-  @Input() result:any;
-  @Output() output:EventEmitter<any>=new EventEmitter();
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService,) { }
   ngOnInit() {
     
