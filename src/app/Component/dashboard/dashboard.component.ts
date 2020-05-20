@@ -12,10 +12,4 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
   }
-
-//   this.activatedRoute.queryParams.subscribe(params => {
-//     let page = params['page'] || '';
-//   });
-// }
-  
 }
