@@ -1,9 +1,9 @@
 <div class="display">
-    <mat-card *ngFor="let data of result;" class="box" (click)="getID(data)">
+    <mat-card *ngFor="let data of result;" class="box" (click)="getId(data)">
         <div > {{data.title}} </div>
         <div > {{data.description}} </div>
         <div class="jc-space">
-            <app-icons [input]="data"></app-icons>
+            <app-icons  [notes]="data" ></app-icons>
         </div>
     </mat-card>
 </div>
