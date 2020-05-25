@@ -19,5 +19,6 @@ getAllNote()
     });
 }
   ngOnInit() {
+    this.getAllNote();
   }
 }

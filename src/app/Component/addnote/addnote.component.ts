@@ -22,6 +22,7 @@ export class AddnoteComponent implements OnInit {
   }
    close(title,description)
    {
+     debugger;
      const form={
         title,
         description,
