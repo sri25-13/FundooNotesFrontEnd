@@ -11,6 +11,7 @@ export class NotesComponent implements OnInit {
   constructor(private service:NoteservicesService,private snackBar:MatSnackBar) { }
 getAllNote()
 {
+  debugger;
   this.service.getAllNotes().subscribe(
     response=>{
     this.listOfNotes=response;
@@ -18,6 +19,5 @@ getAllNote()
     });
 }
   ngOnInit() {
-    this.getAllNote();
   }
 }

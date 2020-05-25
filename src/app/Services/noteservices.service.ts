@@ -13,6 +13,7 @@ export class NoteservicesService {
   }
   getAllNotes()
   {
+    debugger;
     return this.http.get(environment.Url + 'getallnotes');
   }
   archeive(id)
