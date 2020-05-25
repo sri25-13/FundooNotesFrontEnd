@@ -59,4 +59,4 @@ export class IconsComponent implements OnInit {
         { color: "rgb(232, 234, 237)", name: "Gray" }
       ]
     ]
-  
+  }
