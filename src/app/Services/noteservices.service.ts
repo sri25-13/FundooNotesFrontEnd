@@ -25,6 +25,7 @@ export class NoteservicesService {
   }
   setcolor(id,color)
   {
-        return this.http.put(environment.Url + 'ChangeColor?id='+id+'&changeColor='+color,null);
+    debugger;
+        return this.http.put(environment.Url + 'ChangeColor?id='+id+'&color='+color,null);
   }
 }    

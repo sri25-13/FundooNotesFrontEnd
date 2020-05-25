@@ -29,6 +29,7 @@ export class IconsComponent implements OnInit {
       });
     }
     setColor(changeColor) {
+      debugger;
       this.service.setcolor(this.notes.noteId, changeColor).subscribe((result) => {
         console.log(result);
         this.snackBar.open('color changed ', 'Dismiss', { duration: 3000 });
