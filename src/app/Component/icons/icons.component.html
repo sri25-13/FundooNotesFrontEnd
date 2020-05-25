@@ -21,12 +21,12 @@
   </div>
 </div>
 
-<div fxLayout="row" class="icon-style icon-shadow" style="left: 397px; top: 597px;">
+<div fxLayout="row" class="colorclass">
   <mat-menu #addColors="matMenu" [overlapTrigger]="false">
       <ng-template matMenuContent>
-          <div class="colorPalette">
-              <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px" *ngFor="let color of colors">
-                  <div *ngFor="let clr of color" fxLayout="column">
+          <div >
+              <div *ngFor="let color of colors">
+                  <div *ngFor="let clr of color" >
                       <button [ngStyle]="{'background-color': clr.color}" mat-mini-fab matTooltip="{{ clr.name }}"
                           (click)="setColor(clr.color)">
                       </button>
@@ -36,3 +36,6 @@
       </ng-template>
   </mat-menu>
 </div>
+<mat-menu #moreVert="matMenu">
+  <button mat-menu-item id="deleteNote">Delete Note</button>
+</mat-menu>

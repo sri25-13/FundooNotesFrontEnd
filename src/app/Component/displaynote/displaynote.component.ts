@@ -9,7 +9,6 @@ import { Note } from 'src/app/Model/notes.model';
 })
 export class DisplaynoteComponent implements OnInit {
 @Input() result:any;
-@Input() note:any;
 @Input() notes: Note = new Note();
   constructor(private service:NoteservicesService) { }
   
