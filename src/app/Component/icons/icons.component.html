@@ -6,7 +6,7 @@
     <button mat-icon-button class="button" matTooltip="Collaborator">
       <mat-icon class="icon">person_add</mat-icon>
     </button>
-    <button mat-icon-button class="button" matTooltip="Change color">
+    <button mat-icon-button class="button"  matTooltip="Change color"  [matMenuTriggerFor]="addColors" id="palette">
       <mat-icon class="icon">color_lens</mat-icon>
     </button>
     <button mat-icon-button class="button" matTooltip="Add image">
@@ -18,3 +18,18 @@
   </div>
 </div>
 
+<div fxLayout="row" class="icon-style icon-shadow" style="left: 397px; top: 597px;">
+  <mat-menu #addColors="matMenu" [overlapTrigger]="false">
+      <ng-template matMenuContent>
+          <div class="colorPalette">
+              <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px" *ngFor="let color of colors">
+                  <div *ngFor="let clr of color" fxLayout="column">
+                      <button [ngStyle]="{'background-color': clr.color}" mat-mini-fab matTooltip="{{ clr.name }}"
+                          (click)="setColor(clr.color)">
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </mat-menu>
+</div>

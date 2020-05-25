@@ -15,11 +15,11 @@ export class DisplaynoteComponent implements OnInit {
   
   ngOnInit(){ 
   }
-  getID(data)
-  {
-  debugger;
-  this.note=data.noteId;
-  console.log(this.note);
+  // getID(data)
+  // {
+  // debugger;
+  // this.note=data.noteId;
+  // console.log(this.note);
  
-  }
+  // }
 }

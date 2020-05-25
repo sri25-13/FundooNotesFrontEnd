@@ -23,4 +23,8 @@ export class NoteservicesService {
   {
     return this.http.get(environment.Url + 'getnote',value);
   }
+  setcolor(id,color)
+  {
+        return this.http.put(environment.Url + 'ChangeColor?id='+id+'&changeColor='+color,null);
+  }
 }    
