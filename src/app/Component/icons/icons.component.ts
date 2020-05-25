@@ -60,4 +60,17 @@ export class IconsComponent implements OnInit {
         { color: "rgb(232, 234, 237)", name: "Gray" }
       ]
     ]
+    deleteNote() {
+      if (this.notes.id != null) {
+        this.service.sendToTrash(this.notes.id).subscribe((result) => {
+          console.log('response', result);
+          this.snackBar.open('Note sent to trash', 'Dismiss', { duration: 3000 });
+        },
+          (error) => {
+            console.log('error :', error);
+            this.snackBar.open('error in sending to trash', '', { duration: 2000 });
+          }
+        );
+      }
+    }
   }
