@@ -11,6 +11,7 @@ export class DisplaynoteComponent implements OnInit {
 @Input() result:any;
 @Input() notes: Note = new Note();
 @Input() note:any;
+@Output() output: EventEmitter<any> = new EventEmitter();
   constructor(private service:NoteservicesService) { }
   
   ngOnInit(){ 
@@ -22,4 +23,5 @@ export class DisplaynoteComponent implements OnInit {
   // console.log(this.note);
  
   // }
+ 
 }

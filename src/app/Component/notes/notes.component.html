@@ -1,6 +1,7 @@
 
-<app-addnote (output)="getAllNote()" ></app-addnote>
+<app-addnote (output)="getAllNote()"></app-addnote>
 <div *ngFor="let listnotes of listOfNotes">
-<div *ngIf="!listnotes.archeive && !listnotes.trash">
-<app-displaynote [result]="listOfNotes" (output)="getAllNote()"></app-displaynote></div>
+<div *ngIf="!listnotes.archeive && !listnotes.trash ">
+<app-displaynote  [result]="listOfNotes" (output)="getAllNote()"></app-displaynote>
+</div>
 </div>
