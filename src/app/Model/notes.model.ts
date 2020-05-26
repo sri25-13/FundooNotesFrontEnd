@@ -3,7 +3,7 @@ export class Note {
     description: String;
     changeColor: String;
     pin: number;
-    istrash: number;
+    trash: number;
     archeive: number;
     reminder: string;
     noteId: number;

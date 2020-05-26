@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NoteservicesService } from 'src/app/Services/noteservices.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
@@ -21,4 +21,5 @@ getAllNote()
   ngOnInit() {
     this.getAllNote();
   }
+
 }
