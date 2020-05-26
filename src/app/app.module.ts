@@ -30,6 +30,7 @@ import { AddnoteComponent } from './Component/addnote/addnote.component';
 import { NotesComponent } from './Component/notes/notes.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NoteservicesService } from './Services/noteservices.service';
+import { EditNoteComponent } from './Component/edit-note/edit-note.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { NoteservicesService } from './Services/noteservices.service';
     DisplaynoteComponent,
     AddnoteComponent,
     NotesComponent,
+    EditNoteComponent,
     
   ],
   imports: [

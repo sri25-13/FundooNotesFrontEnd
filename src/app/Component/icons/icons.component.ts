@@ -10,13 +10,15 @@ import { Note } from 'src/app/Model/notes.model';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
- input:object;
   @Input() notes: any;
   note: Note = new Note();
+  @Output() output: EventEmitter<any> = new EventEmitter();
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService,) { }
   ngOnInit() {
   }
-  
+  getOutputNotes() {
+    this.output.emit('done');
+  }
   isArchive()
     {
       debugger;
@@ -35,6 +37,7 @@ export class IconsComponent implements OnInit {
         (result) => {
         console.log(result);
         this.snackBar.open('color changed ', 'Dismiss', { duration: 3000 });
+        this.getOutputNotes();
       },
         (error) => {
           console.log('error ', error);
