@@ -30,4 +30,9 @@ export class NoteservicesService {
     debugger;
         return this.http.put(environment.Url + 'ChangeColor?id='+id+'&color='+color,null);
   }
+  sendToTrash(id)
+  {
+    debugger;
+    return this.http.post(environment.Url + 'Trash?id='+id,null);
+  }
 }    

@@ -10,6 +10,7 @@ import { Note } from 'src/app/Model/notes.model';
 export class DisplaynoteComponent implements OnInit {
 @Input() result:any;
 @Input() notes: Note = new Note();
+@Input() note:any;
   constructor(private service:NoteservicesService) { }
   
   ngOnInit(){ 

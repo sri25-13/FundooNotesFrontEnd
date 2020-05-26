@@ -13,8 +13,12 @@ export class IconsComponent implements OnInit {
  input:object;
   @Input() notes: any;
   note: Note = new Note();
+  @Output() output:EventEmitter<any>=new EventEmitter();
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService,) { }
   ngOnInit() {
+  }
+  Output() {
+    this.output.emit('done');
   }
   isArchive()
     {
@@ -30,9 +34,11 @@ export class IconsComponent implements OnInit {
     }
     setColor(changeColor) {
       debugger;
-      this.service.setcolor(this.notes.noteId, changeColor).subscribe((result) => {
+      this.service.setcolor(this.notes.noteId, changeColor).subscribe(
+        (result) => {
         console.log(result);
         this.snackBar.open('color changed ', 'Dismiss', { duration: 3000 });
+        this.Output();
       },
         (error) => {
           console.log('error ', error);
@@ -61,10 +67,12 @@ export class IconsComponent implements OnInit {
       ]
     ]
     deleteNote() {
-      if (this.notes.id != null) {
-        this.service.sendToTrash(this.notes.id).subscribe((result) => {
-          console.log('response', result);
+      debugger;
+      if (this.notes.noteId != null) {
+        this.service.sendToTrash(this.notes.noteId).subscribe(
+          (result) => {
           this.snackBar.open('Note sent to trash', 'Dismiss', { duration: 3000 });
+          this.Output();
         },
           (error) => {
             console.log('error :', error);
