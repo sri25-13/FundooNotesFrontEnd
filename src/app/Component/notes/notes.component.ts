@@ -7,11 +7,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
-  listOfNotes: object;
+  listOfNotes: any;
   constructor(private service:NoteservicesService,private snackBar:MatSnackBar) { }
 getAllNote()
 {
-  debugger;
   this.service.getAllNotes().subscribe(
     response=>{
     this.listOfNotes=response;

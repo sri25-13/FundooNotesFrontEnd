@@ -9,12 +9,10 @@ export class NoteservicesService {
   constructor(private http : HttpClient) { }
   createnote(values)
   {
-    debugger;
     return this.http.post(environment.Url+'AddNote',values);
   }
   getAllNotes()
   {
-    debugger;
     return this.http.get(environment.Url + 'getallnotes');
   }
   archeive(id)
@@ -27,12 +25,17 @@ export class NoteservicesService {
   }
   setcolor(id,color)
   {
-    debugger;
         return this.http.put(environment.Url + 'ChangeColor?id='+id+'&color='+color,null);
   }
   sendToTrash(id)
   {
-    debugger;
     return this.http.post(environment.Url + 'Trash?id='+id,null);
+  }
+  updateNote(val)
+  {
+    console.log(val);
+    debugger;
+    
+    return this.http.put(environment.Url +'Update?n='+val.noteId,null);
   }
 }    

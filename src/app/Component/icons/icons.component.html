@@ -7,12 +7,12 @@
       <mat-icon class="icon">person_add</mat-icon>
     </button>
     <button mat-icon-button class="button"  matTooltip="Change color"  [matMenuTriggerFor]="addColors" id="palette">
-      <mat-icon class="icon">color_lens</mat-icon>
+      <mat-icon class="icon">palette</mat-icon>
     </button>
     <button mat-icon-button class="button" matTooltip="Add image">
       <mat-icon class="icon">add_photo_alternate</mat-icon>
     </button>
-    <button mat-icon-button class="button" matTooltip="Archive" *ngIf="!notes.archive" (click)="isArchive()">
+    <button id="archive" mat-icon-button class="button" matTooltip="Archive" *ngIf="!notes.archive" (click)="isArchive()">
       <mat-icon class="icon" >archive</mat-icon>
     </button>
     <button mat-icon-button matTooltip="more" id="more" [matMenuTriggerFor]="moreVert">
@@ -25,7 +25,7 @@
   <mat-menu #addColors="matMenu" [overlapTrigger]="false">
       <ng-template matMenuContent>
           <div >
-              <div *ngFor="let color of colors">
+              <div *ngFor="let color of colours">
                   <div *ngFor="let clr of color" >
                       <button [ngStyle]="{'background-color': clr.color}" mat-mini-fab matTooltip="{{ clr.name }}"
                           (click)="setColor(clr.color)">

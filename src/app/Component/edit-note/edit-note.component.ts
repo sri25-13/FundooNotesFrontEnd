@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit,Output, EventEmitter, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Note } from 'src/app/Model/notes.model';
 @Component({
   selector: 'app-edit-note',
   templateUrl: './edit-note.component.html',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditNoteComponent implements OnInit {
 
-  constructor() { }
+  @Output() output: EventEmitter<any> = new EventEmitter();
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public dialogRef: MatDialogRef<EditNoteComponent>) { }
 
-  ngOnInit() {
+  note: Note = new Note();
+  ngOnInit(): void {
+  }
+  updateNote(title, description, noteId) {
+    this.note.noteId = noteId;
+    this.note.description = description;
+    this.note.title = title;
+    this.dialogRef.close({ updateData: this.note });
   }
 
-}
+  outputFunction(value) {
+    debugger;
+    this.dialogRef.close({ res: value });
+  } 
+}  

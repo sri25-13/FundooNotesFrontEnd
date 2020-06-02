@@ -16,12 +16,9 @@ export class IconsComponent implements OnInit {
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService,) { }
   ngOnInit() {
   }
-  getOutputNotes() {
-    this.output.emit('done');
-  }
+ 
   isArchive()
     {
-      debugger;
       console.log(this.notes.noteId);
       this.service.archeive(this.notes.noteId).subscribe(
         (result) => {
@@ -37,7 +34,6 @@ export class IconsComponent implements OnInit {
         (result) => {
         console.log(result);
         this.snackBar.open('color changed ', 'Dismiss', { duration: 3000 });
-        this.getOutputNotes();
       },
         (error) => {
           console.log('error ', error);
@@ -45,7 +41,7 @@ export class IconsComponent implements OnInit {
         });
   
     }
-    colors = [
+    colours = [
       [
         { color: "rgb(255,255,255)", name: "Default" },
         { color: "rgb(242, 139, 130)", name: "Red" },

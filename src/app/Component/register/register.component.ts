@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
  import {FormControl, Validators} from '@angular/forms';
  import {MatSnackBar} from '@angular/material/snack-bar';
  import { UserService } from 'src/app/Services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private service: UserService,private snackBar: MatSnackBar) { }
+  constructor(private service: UserService,private snackBar: MatSnackBar,private route:Router) { }
   firstName = new FormControl('', [ 
     Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z]*'), ]);
     ngOnInit() {
@@ -36,6 +37,7 @@ export class RegisterComponent implements OnInit {
       this.service.registration(form).subscribe(
         (result) => {
           this.snackBar.open('Registered Successfully', 'Dismiss', { duration: 3000 });
+          this.route.navigate(['/login']);
         },
     
         (error) => {

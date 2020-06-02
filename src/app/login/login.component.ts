@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       this.service.Login(details).subscribe(
         (result) => {
           this.snackBar.open('login Successfull', 'Dismiss', { duration: 3000 });
-          this.route.navigate(['/dashboard']);
+          this.route.navigate(['/dashboard/notes']);
         },
         (error) => {
           this.snackBar.open('login Failed. invalid credentials', '', { duration: 1000 });

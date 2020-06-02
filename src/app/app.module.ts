@@ -68,6 +68,7 @@ import { EditNoteComponent } from './Component/edit-note/edit-note.component';
    RouterModule.forRoot([]),
    MatDialogModule,
   ],
+  entryComponents:[EditNoteComponent],
   providers: [UserService,NoteservicesService],
   bootstrap: [AppComponent]
 })
