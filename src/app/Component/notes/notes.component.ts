@@ -7,18 +7,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
-  listOfNotes: any;
+  listOfNotes: any=[];
   constructor(private service:NoteservicesService,private snackBar:MatSnackBar) { }
 getAllNote()
 {
   this.service.getAllNotes().subscribe(
-    response=>{
-    this.listOfNotes=response;
-    console.log(response);
+    listOfNotes=>{
+    this.listOfNotes=listOfNotes;
+    console.log(this.listOfNotes);
     });
 }
   ngOnInit() {
     this.getAllNote();
   }
-
 }

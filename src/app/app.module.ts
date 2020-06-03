@@ -31,7 +31,11 @@ import { NotesComponent } from './Component/notes/notes.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NoteservicesService } from './Services/noteservices.service';
 import { EditNoteComponent } from './Component/edit-note/edit-note.component';
-
+import { TrashComponent } from './Component/trash/trash.component';
+import { ArchiveComponent } from './Component/archive/archive.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +49,8 @@ import { EditNoteComponent } from './Component/edit-note/edit-note.component';
     AddnoteComponent,
     NotesComponent,
     EditNoteComponent,
+    TrashComponent,
+    ArchiveComponent,
     
   ],
   imports: [
@@ -67,6 +73,9 @@ import { EditNoteComponent } from './Component/edit-note/edit-note.component';
    MatMenuModule,
    RouterModule.forRoot([]),
    MatDialogModule,
+   MatDatepickerModule,
+   MatSelectModule,
+   MatNativeDateModule
   ],
   entryComponents:[EditNoteComponent],
   providers: [UserService,NoteservicesService],

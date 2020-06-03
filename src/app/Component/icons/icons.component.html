@@ -1,6 +1,6 @@
 <div>
   <div fxLayout="row" class="icons">
-    <button mat-icon-button class="button" matTooltip="Remind me">
+    <button mat-icon-button class="button" [matMenuTriggerFor]="remind" matTooltip="Remind me">
       <mat-icon class="icon">add_alert</mat-icon>
     </button>
     <button mat-icon-button class="button" matTooltip="Collaborator">
@@ -12,7 +12,7 @@
     <button mat-icon-button class="button" matTooltip="Add image">
       <mat-icon class="icon">add_photo_alternate</mat-icon>
     </button>
-    <button id="archive" mat-icon-button class="button" matTooltip="Archive" *ngIf="!notes.archive" (click)="isArchive()">
+    <button id="archive" mat-icon-button class="button" matTooltip="Archive" *ngIf="!notes.archive" (click)="isArchive()" >
       <mat-icon class="icon" >archive</mat-icon>
     </button>
     <button mat-icon-button matTooltip="more" id="more" [matMenuTriggerFor]="moreVert">
@@ -38,4 +38,44 @@
 </div>
 <mat-menu #moreVert="matMenu">
   <button mat-menu-item id="deleteNote" (click)="deleteNote()" >Delete Note</button>
+</mat-menu>
+<mat-menu #remind="matMenu">
+  <mat-card>
+      <div>
+          <mat-icon matTooltip="Go back">arrow_back</mat-icon>
+      </div>
+      <div class="pickDate">
+          Pick date & time
+      </div>
+
+      <mat-form-field>
+          <input  matInput [matDatepicker]="date" value="matDatepicker" #picdate>
+          <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+          <mat-datepicker #date></mat-datepicker>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill" >
+          <mat-label>8:00 AM</mat-label>
+          <mat-select id="time">
+              <mat-option value="8:00 AM" (click)="setTime(morning.value)" #morning>Morning 8:00 AM</mat-option>
+              <mat-option value="1:00 PM" (click)="setTime(afternoon.value)" #afternoon>Afternoon 1:00 PM</mat-option>
+              <mat-option value="6:00 PM" (click)="setTime(evening.value)" #evening>Evening 6:00 PM</mat-option>
+              <mat-option value="8:00 PM" (click)="setTime(night.value)" #night>Night 8:00 PM</mat-option>
+              <mat-option value="10:00 AM" (click)="setTime(custom.value)" #custom>Custom</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+          <mat-label>Does not repeat</mat-label>
+          <mat-select >
+              <mat-option value="not" (click)="setRepitation(norepeat.value)" #norepeat>Does not repeat</mat-option>
+              <mat-option value="daily" (click)="setRepitation(daily.value)" #daily>Daily</mat-option>
+              <mat-option value="weekly" (click)="setRepitation(weekly.value)" #weekly>Weekly</mat-option>
+              <mat-option value="monthly" (click)="setRepitation(monthly.value)" #monthly>Monthly</mat-option>
+              <mat-option value="yearly" (click)="setRepitation(yearly.value)" #yearly>Yearly</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <button mat-raised-button (click)="saveReminder(picdate.value)" >Save</button>
+  </mat-card>
 </mat-menu>

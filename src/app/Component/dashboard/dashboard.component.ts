@@ -9,7 +9,18 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   constructor(private route:Router,private activatedRoute: ActivatedRoute) { }
-
+  view: boolean = false;
+  grid = "row";
   ngOnInit() {
+  }
+  gridView() {
+    if (this.view == true) {
+      this.view = false;
+      this.grid = "row";
+    }
+    else {
+      this.view = true;
+      this.grid = "column";
+    }
   }
 }

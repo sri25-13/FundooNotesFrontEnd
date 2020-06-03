@@ -54,7 +54,12 @@ height:45px;
   {
     margin-left: 35px;
   }
-  
+  .grid{
+    justify-content: right;
+    display: flex;
+    margin-top: 33px;
+    margin-left: 120px;
+  }
   .searchbar{
     width: 750px;
     border-radius: 5px;

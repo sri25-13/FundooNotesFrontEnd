@@ -1,9 +1,9 @@
 <div class="display">
-    <mat-card class="box" [ngStyle]="{'background-color':result.changeColor}" >
-        <div (click)="OnClicktoUpdate(result)" > {{result.title}} </div>
-        <div (click)="OnClicktoUpdate(result)" > {{result.description}} </div>
-        <div class="jc-space">
-            <app-icons  [notes]="result"></app-icons>
+    <mat-card *ngFor="let data of result" class="box" [ngStyle]="{'background-color':data.changeColor}">
+        <div (click)="OnClicktoUpdate(data)" >
+        <div> {{data.title}} </div>
+        <div > {{data.description}} </div>
         </div>
+            <app-icons  [notes]="data" (output)="getAllNote()"></app-icons>
     </mat-card>
 </div>

@@ -13,15 +13,45 @@ export class IconsComponent implements OnInit {
   @Input() notes: any;
   note: Note = new Note();
   @Output() output: EventEmitter<any> = new EventEmitter();
+  time = "8:00 AM";
+  repeat = "daily";
+  reminder: Note = new Note();
+  day = "Today";
+  todayString: string = new Date().toDateString();
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService,) { }
   ngOnInit() {
   }
- 
+  setRepitation(repeat) {
+    this.repeat = repeat;
+  }
+
+  setTime(time) {
+    this.time = time;
+  }
+  saveReminder(date) {
+    debugger;
+    let str: any;
+    if (date != "") {
+      let res = new Date(date);
+      str = res.toDateString();
+    }
+    else str = this.day;
+    let remin = str + " " + this.time;
+
+    if (this.notes.noteId != undefined) {
+      debugger;
+      this.service.setReminder(this.notes.noteId, remin).subscribe((result) => {
+        console.log(result);
+        this.snackBar.open('Reminder set', '', { duration: 2000 });
+      })
+    }
+  }
   isArchive()
     {
       console.log(this.notes.noteId);
       this.service.archeive(this.notes.noteId).subscribe(
         (result) => {
+          this.output.emit({name:''});
           this.snackBar.open('Archived', 'Dismiss', { duration: 3000 });
         // },
         // (error) => {
@@ -29,10 +59,11 @@ export class IconsComponent implements OnInit {
       });
     }
     setColor(changeColor) {
-      debugger;
+       debugger;
       this.service.setcolor(this.notes.noteId, changeColor).subscribe(
         (result) => {
         console.log(result);
+        this.output.emit({name:'getAllNote'});
         this.snackBar.open('color changed ', 'Dismiss', { duration: 3000 });
       },
         (error) => {
@@ -66,6 +97,7 @@ export class IconsComponent implements OnInit {
       if (this.notes.noteId != null) {
         this.service.sendToTrash(this.notes.noteId).subscribe(
           (result) => {
+            this.output.emit({name:'getAllNote'});
           this.snackBar.open('Note sent to trash', 'Dismiss', { duration: 3000 });
         },
           (error) => {
@@ -75,4 +107,5 @@ export class IconsComponent implements OnInit {
         );
       }
     }
+
   }

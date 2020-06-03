@@ -9,12 +9,15 @@ import { EditNoteComponent } from '../edit-note/edit-note.component';
   styleUrls: ['./displaynote.component.scss']
 })
 export class DisplaynoteComponent implements OnInit {
-  @Input() result: any;
+  @Input() result:any;
   @Input() notes: Note = new Note();
   @Output() output: EventEmitter<any> = new EventEmitter();
   constructor(private service: NoteservicesService, public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+  getAllNote(){
+    this.output.emit('getAllNote');
   }
   // getID(data)
   // {
@@ -32,7 +35,7 @@ export class DisplaynoteComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result.updateData) {
-        // this.output.emit({name:'getAllNote'});
+         this.output.emit({name:'getAllNote'});
         debugger;
         this.service.updateNote(result.updateData).subscribe(response => {
           console.log(response);
