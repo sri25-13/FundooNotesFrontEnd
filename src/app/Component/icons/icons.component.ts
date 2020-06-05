@@ -11,6 +11,7 @@ import { Note } from 'src/app/Model/notes.model';
 })
 export class IconsComponent implements OnInit {
   @Input() notes: any;
+  @Input() onAddNote:boolean=false;
   note: Note = new Note();
   @Output() output: EventEmitter<any> = new EventEmitter();
   time = "8:00 AM";
@@ -38,13 +39,18 @@ export class IconsComponent implements OnInit {
     else str = this.day;
     let remin = str + " " + this.time;
 
-    if (this.notes.noteId != undefined) {
-      debugger;
-      this.service.setReminder(this.notes.noteId, remin).subscribe((result) => {
-        console.log(result);
-        this.snackBar.open('Reminder set', '', { duration: 2000 });
-      })
-    }
+    // if (this.notes.noteId != undefined) {
+      if(this.onAddNote){
+        this.output.emit({name:'reminder',value:remin});
+      }
+      else{
+        debugger;
+        this.service.setReminder(this.notes.noteId, remin).subscribe((result) => {
+          console.log(result);
+          this.snackBar.open('Reminder set', '', { duration: 2000 });
+        })
+      }
+    // }
   }
   isArchive()
     {
@@ -57,8 +63,14 @@ export class IconsComponent implements OnInit {
         // (error) => {
         //   this.snackBar.open('unarcheive', '', { duration: 3000 });
       });
-    }
+    
+  }
     setColor(changeColor) {
+      if(this.onAddNote){
+        this.output.emit({name:'changecolor',value:changeColor});
+      }
+      else
+      {
        debugger;
       this.service.setcolor(this.notes.noteId, changeColor).subscribe(
         (result) => {
@@ -70,7 +82,7 @@ export class IconsComponent implements OnInit {
           console.log('error ', error);
           this.snackBar.open('error ', 'Dismiss', { duration: 3000 });
         });
-  
+      }
     }
     colours = [
       [

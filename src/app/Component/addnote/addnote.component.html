@@ -20,7 +20,7 @@
 
       <div class="box">
         <div class="bottomalign">
-          <app-icons></app-icons>
+          <app-icons (output)="apiCall($event)" [onAddNote]="true"></app-icons>
         </div>
         <div class=" cancelclass">
           <button mat-button class="closecls" (click)="close(title.value,description.value)">Close</button>

@@ -36,6 +36,8 @@ import { ArchiveComponent } from './Component/archive/archive.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatChipsModule} from '@angular/material/chips';
+import { ReminderComponent } from './Component/reminder/reminder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     EditNoteComponent,
     TrashComponent,
     ArchiveComponent,
-    
+    ReminderComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,8 @@ import { MatNativeDateModule } from '@angular/material/core';
    MatDialogModule,
    MatDatepickerModule,
    MatSelectModule,
-   MatNativeDateModule
+   MatNativeDateModule,
+   MatChipsModule
   ],
   entryComponents:[EditNoteComponent],
   providers: [UserService,NoteservicesService],

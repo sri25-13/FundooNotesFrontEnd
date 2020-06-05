@@ -11,3 +11,27 @@ margin-right: auto;
 //     justify-content:space-between;
 // }
 
+.mar
+{
+    margin-left: 0mm;
+    pointer-events: auto;
+    font-size: 12px;
+    background: transparent;
+}
+.reminder
+{
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+.Closebutton
+{
+    margin-top: 6px;
+    margin-left: 6px;
+    margin-right: -12px;
+}
+.mar:hover{
+  .Closebutton{
+      visibility: visible;
+  }
+}

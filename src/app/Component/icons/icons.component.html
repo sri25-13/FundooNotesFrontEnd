@@ -1,26 +1,25 @@
 <div>
   <div fxLayout="row" class="icons">
     <button mat-icon-button class="button" [matMenuTriggerFor]="remind" matTooltip="Remind me">
-      <mat-icon class="icon">add_alert</mat-icon>
+    <mat-icon class="icon">add_alert</mat-icon>
     </button>
     <button mat-icon-button class="button" matTooltip="Collaborator">
-      <mat-icon class="icon">person_add</mat-icon>
+    <mat-icon class="icon">person_add</mat-icon>
     </button>
     <button mat-icon-button class="button"  matTooltip="Change color"  [matMenuTriggerFor]="addColors" id="palette">
-      <mat-icon class="icon">palette</mat-icon>
+    <mat-icon class="icon">palette</mat-icon>
     </button>
     <button mat-icon-button class="button" matTooltip="Add image">
-      <mat-icon class="icon">add_photo_alternate</mat-icon>
+    <mat-icon class="icon">add_photo_alternate</mat-icon>
     </button>
-    <button id="archive" mat-icon-button class="button" matTooltip="Archive" *ngIf="!notes.archive" (click)="isArchive()" >
-      <mat-icon class="icon" >archive</mat-icon>
+    <button id="archive" mat-icon-button class="button" matTooltip="Archive"  (click)="isArchive()" >
+    <mat-icon class="icon" >archive</mat-icon>
     </button>
     <button mat-icon-button matTooltip="more" id="more" [matMenuTriggerFor]="moreVert">
-      <mat-icon>more_vert</mat-icon>
+    <mat-icon>more_vert</mat-icon>
   </button>
   </div>
 </div>
-
 <div fxLayout="row" class="colorclass">
   <mat-menu #addColors="matMenu" [overlapTrigger]="false">
       <ng-template matMenuContent>
@@ -37,7 +36,7 @@
   </mat-menu>
 </div>
 <mat-menu #moreVert="matMenu">
-  <button mat-menu-item id="deleteNote" (click)="deleteNote()" >Delete Note</button>
+  <button *ngIf="!onCreateNote" mat-menu-item id="deleteNote" (click)="deleteNote()" >Delete Note</button>
 </mat-menu>
 <mat-menu #remind="matMenu">
   <mat-card>
@@ -47,13 +46,11 @@
       <div class="pickDate">
           Pick date & time
       </div>
-
       <mat-form-field>
           <input  matInput [matDatepicker]="date" value="matDatepicker" #picdate>
           <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
           <mat-datepicker #date></mat-datepicker>
       </mat-form-field>
-
       <br>
       <mat-form-field appearance="fill" >
           <mat-label>8:00 AM</mat-label>

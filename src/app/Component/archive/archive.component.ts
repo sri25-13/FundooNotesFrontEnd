@@ -21,4 +21,3 @@ this.service.getArchive().subscribe(
     this.getAllArchive();
   }
 }
-

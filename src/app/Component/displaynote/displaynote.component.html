@@ -4,6 +4,16 @@
         <div> {{data.title}} </div>
         <div > {{data.description}} </div>
         </div>
-            <app-icons  [notes]="data" (output)="getAllNote()"></app-icons>
+        <div *ngIf="data.reminder!=null&&data.reminder!=''">
+        <mat-chip-list>
+            <mat-chip class="mar">{{data.reminder}}
+                <button matTooltip="Delete Reminder" [ngStyle]="{'background-color' : data.changeColor}"
+                    class="reminder" style="border: none;outline: none;">
+                    <mat-icon (click)="deleteReminder(data.noteId)" class="Closebutton">close</mat-icon>
+                </button>
+            </mat-chip>
+        </mat-chip-list>
+    </div>
+            <app-icons [notes]="data" (output)="getAllNote()"></app-icons>
     </mat-card>
 </div>

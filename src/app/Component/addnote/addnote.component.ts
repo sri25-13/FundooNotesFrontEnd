@@ -10,6 +10,13 @@ import { NoteservicesService } from 'src/app/Services/noteservices.service';
 export class AddnoteComponent implements OnInit {
   popup: boolean;
   @Output() output:EventEmitter<any>=new EventEmitter();
+   form={
+    title:'',
+    description:'',
+    reminder:'',
+    archive:'',
+    changeColor:'',
+ };
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService) { }
   ngOnInit() {
   }
@@ -22,13 +29,11 @@ export class AddnoteComponent implements OnInit {
   }
    close(title,description)
    {
-     const form={
-        title,
-        description,
-     };
-     if(title!=""|| description!="")
+     this.form.title=title;
+     this.form.description=description;
+     if(this.form.title!=""|| this.form.description!="")
      {
-     this.service.createnote(form).subscribe(
+     this.service.createnote(this.form).subscribe(
       (result) => {
         this.output.emit({name:'getAllNote'});
         this.snackBar.open('Note created', '', { duration: 3000 });
@@ -42,6 +47,16 @@ export class AddnoteComponent implements OnInit {
      else{
        this.submit();
      }
+     }
+
+     apiCall(event){
+       switch(event['name']){
+         case 'reminder': this.form.reminder=event['value']
+           break;
+           case 'changecolor':this.form.changeColor=event['value']
+           break;
+           
+       }
      }
     }
 

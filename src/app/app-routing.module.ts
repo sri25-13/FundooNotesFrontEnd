@@ -8,6 +8,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NotesComponent } from './Component/notes/notes.component';
 import { TrashComponent } from './Component/trash/trash.component';
 import { ArchiveComponent } from './Component/archive/archive.component';
+import { ReminderComponent } from './Component/reminder/reminder.component';
 
 const routes: Routes = [
   {path : 'register',component: RegisterComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   children:[
      {path : 'notes',component:NotesComponent} ,
      {path : 'trash',component:TrashComponent} ,
-     {path : 'archive',component:ArchiveComponent}
+     {path : 'archive',component:ArchiveComponent},
+     {path : 'reminder',component:ReminderComponent}
    ]
  },
 ];

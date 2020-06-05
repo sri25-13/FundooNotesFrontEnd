@@ -7,10 +7,8 @@ import { Note } from 'src/app/Model/notes.model';
   styleUrls: ['./edit-note.component.scss']
 })
 export class EditNoteComponent implements OnInit {
-
   @Output() output: EventEmitter<any> = new EventEmitter();
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,public dialogRef: MatDialogRef<EditNoteComponent>) { }
-
   note: Note = new Note();
   ngOnInit(): void {
   }
@@ -20,9 +18,7 @@ export class EditNoteComponent implements OnInit {
     this.note.title = title;
     this.dialogRef.close({ updateData: this.note });
   }
-
   outputFunction(value) {
-    debugger;
     this.dialogRef.close({ res: value });
   } 
 }  

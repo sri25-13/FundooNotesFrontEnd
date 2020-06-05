@@ -51,4 +51,9 @@ export class NoteservicesService {
       debugger;
       return this.http.post(environment.Url+'reminder?id='+id+'&Reminder='+reminder,null);
     }
+    getReminder()
+  {
+    return this.http.get(environment.Url +'GetReminder');
+  }
+
 }    
