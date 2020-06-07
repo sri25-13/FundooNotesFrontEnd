@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteservicesService } from 'src/app/Services/noteservices.service';
+import { Note } from 'src/app/Model/notes.model';
 
 @Component({
   selector: 'app-addnote',
@@ -9,7 +10,8 @@ import { NoteservicesService } from 'src/app/Services/noteservices.service';
 })
 export class AddnoteComponent implements OnInit {
   popup: boolean;
-  @Output() output:EventEmitter<any>=new EventEmitter();
+  @Input() notes:Note =new Note();
+    @Output() output:EventEmitter<any>=new EventEmitter();
    form={
     title:'',
     description:'',

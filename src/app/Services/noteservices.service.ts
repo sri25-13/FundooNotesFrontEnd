@@ -55,5 +55,9 @@ export class NoteservicesService {
   {
     return this.http.get(environment.Url +'GetReminder');
   }
-
+removeReminder(id)
+{
+  debugger;
+  return this.http.delete(environment.Url +'deleteReminder?id='+id);
+}
 }    
