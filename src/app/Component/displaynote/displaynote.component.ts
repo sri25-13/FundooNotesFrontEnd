@@ -4,6 +4,7 @@ import { NoteservicesService } from 'src/app/Services/noteservices.service';
 import { Note } from 'src/app/Model/notes.model';
 import { EditNoteComponent } from '../edit-note/edit-note.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataService } from 'src/app/Services/data.service';
 @Component({
   selector: 'app-displaynote',
   templateUrl: './displaynote.component.html',
@@ -13,9 +14,12 @@ export class DisplaynoteComponent implements OnInit {
   @Input() result:any;
   @Input() notes: Note = new Note();
   @Output() output: EventEmitter<any> = new EventEmitter();
-  constructor(private service: NoteservicesService,private snackBar:MatSnackBar, public dialog: MatDialog) { }
+  text: string;
+  width: any;
+  constructor(private service: NoteservicesService,private data: DataService,private snackBar:MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.width=this.data.currentMessage.subscribe(message=>this.width=message);
   }
   getAllNote(){
     this.output.emit('getAllNote');

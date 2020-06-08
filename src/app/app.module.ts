@@ -38,6 +38,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatChipsModule} from '@angular/material/chips';
 import { ReminderComponent } from './Component/reminder/reminder.component';
+import { SearchComponent } from './Component/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { ReminderComponent } from './Component/reminder/reminder.component';
     TrashComponent,
     ArchiveComponent,
     ReminderComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

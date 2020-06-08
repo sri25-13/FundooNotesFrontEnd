@@ -1,3 +1,5 @@
-
-<app-addnote (output)="getAllNote()"></app-addnote>
-<app-displaynote  [result]="listOfNotes" (output)="getAllNote()"></app-displaynote>
+<app-search *ngIf='searchText!=""; else elseBlock'></app-search>
+<ng-template #elseBlock>
+    <app-addnote (output)="getAllNote()"></app-addnote>
+    <app-displaynote  [result]="listOfNotes" (output)="getAllNote()"></app-displaynote>    
+</ng-template>

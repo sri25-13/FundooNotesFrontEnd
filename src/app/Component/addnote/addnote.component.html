@@ -12,15 +12,15 @@
     </button>
   </div>
   </mat-card>
-  <mat-card *ngIf="popup"  class="card">
+  <mat-card [style.background]="backgroundColor" *ngIf="popup"  class="card">
       <div class="text">
         <input type="text" class="notetext" placeholder="Title" value="" #title >
         <input class="notetext1" type="text" placeholder="Take a note......" value=""  #description >
       </div>
-      <div *ngIf="notes.reminder!=null&&notes.reminder!=''">
+      <div *ngIf="form.reminder!=''">
       <mat-chip-list>
-        <mat-chip class="mar">{{notes.reminder}}
-            <button matTooltip="Delete Reminder" [ngStyle]="{'background-color' : notes.changeColor}"
+        <mat-chip class="mar">{{form.reminder}}
+            <button matTooltip="Delete Reminder"
                 class="reminder" style="border: none;outline: none;">
                 <mat-icon (click)="deleteReminder(notes.noteId)" class="Closebutton">close</mat-icon>
             </button>

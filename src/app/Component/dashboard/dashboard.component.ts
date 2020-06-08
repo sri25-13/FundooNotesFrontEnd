@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DataService } from 'src/app/Services/data.service';
+import { NoteservicesService } from 'src/app/Services/noteservices.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,20 +9,33 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor(private route:Router,private activatedRoute: ActivatedRoute) { }
-  view: boolean = false;
+  width: any;
+  searchNotes: any;
+  constructor(private route: Router, private service: NoteservicesService, private activatedRoute: ActivatedRoute, private data: DataService) { }
+  view: boolean = true;
   grid = "row";
   ngOnInit() {
   }
+  search(value) {
+    this.data.updateSearchtext(value);
+    this.service.search(value).subscribe(
+      searchNotes => {
+        this.searchNotes = searchNotes;
+        this.data.searchnotes(this.searchNotes);
+        console.log(this.searchNotes);
+      });
+  }
   gridView() {
-    if (this.view == true) {
-      this.view = false;
-      this.grid = "row";
+    debugger;
+    this.view = !this.view
+    if (!this.view) {
+      this.data.changegrid('60%');
     }
     else {
-      this.view = true;
-      this.grid = "column";
+      this.data.changegrid('22%');
     }
+
   }
 }
+
+

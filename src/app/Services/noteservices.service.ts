@@ -60,4 +60,9 @@ removeReminder(id)
   debugger;
   return this.http.delete(environment.Url +'deleteReminder?id='+id);
 }
+search(values)
+{
+  debugger
+  return this.http.get(environment.Url+'search?searchParameter='+values);
+}
 }    

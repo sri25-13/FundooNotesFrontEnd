@@ -1,5 +1,5 @@
 <div class="display">
-    <mat-card *ngFor="let data of result" class="box" [ngStyle]="{'background-color':data.changeColor}">
+    <mat-card [style.width]="width" *ngFor="let data of result" class="box" [ngStyle]="{'background-color':data.changeColor}">
         <div (click)="OnClicktoUpdate(data)" >
         <div> {{data.title}} </div>
         <div > {{data.description}} </div>
@@ -9,7 +9,7 @@
             <mat-chip class="mar">{{data.reminder}}
                 <button matTooltip="Delete Reminder" [ngStyle]="{'background-color' : data.changeColor}"
                     class="reminder" style="border: none;outline: none;">
-                    <mat-icon (click)="deleteReminder(data.noteId)" class="Closebutton">close</mat-icon>
+                    <mat-icon (click)="deleteReminder(data.noteId)"class="Closebutton">close</mat-icon>
                 </button>
             </mat-chip>
         </mat-chip-list>

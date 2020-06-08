@@ -19,6 +19,7 @@ export class AddnoteComponent implements OnInit {
     archive:'',
     changeColor:'',
  };
+ backgroundColor:'rgb(255,255,255)'
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService) { }
   ngOnInit() {
   }
@@ -54,8 +55,11 @@ export class AddnoteComponent implements OnInit {
      apiCall(event){
        switch(event['name']){
          case 'reminder': this.form.reminder=event['value']
+         
            break;
            case 'changecolor':this.form.changeColor=event['value']
+           debugger
+           this.backgroundColor=event.value;
            break;
            
        }
