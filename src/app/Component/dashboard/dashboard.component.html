@@ -28,6 +28,17 @@
               </mat-icon>
             </button>
           </ng-template>
+          <div>
+            <button mat-button [matMenuTriggerFor]="picture">
+          <img class="propic" src="assets/images/profilepic.png" >
+        </button>
+        <mat-menu  #picture="matMenu">
+          <div>
+
+          </div>
+          
+        </mat-menu>
+        </div>
           </div>
     </mat-toolbar>
   </div>

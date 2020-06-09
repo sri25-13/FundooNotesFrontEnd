@@ -7,14 +7,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class NoteservicesService {
   header = {
     headers: new HttpHeaders()
-      .set('Authorization',  `Bearer ${localStorage.Token}`)
+      .set('Authorization',  `Bearer ${localStorage.securityToken}`)
   }
   constructor(private http : HttpClient) { }
   createnote(values)
   {
     var header = {
       headers: new HttpHeaders()
-        .set('Authorization',  `Bearer ${localStorage.Token}`)
+        .set('Authorization',  `Bearer ${localStorage.securityToken}`)
     }
     return this.http.post(environment.Url+'AddNote',values,header);
   }

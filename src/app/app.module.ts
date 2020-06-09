@@ -84,7 +84,7 @@ import { CollaboratorComponent } from './Component/collaborator/collaborator.com
    MatNativeDateModule,
    MatChipsModule
   ],
-  entryComponents:[EditNoteComponent],
+  entryComponents:[EditNoteComponent, CollaboratorComponent],
   providers: [UserService,NoteservicesService],
   bootstrap: [AppComponent]
 })

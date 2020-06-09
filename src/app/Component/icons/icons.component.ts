@@ -3,6 +3,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteservicesService } from 'src/app/Services/noteservices.service';
 import {       } from 'src/app/Component/displaynote/displaynote.component';
 import { Note } from 'src/app/Model/notes.model';
+import { CollaboratorService } from 'src/app/Services/collaborator.service';
+import { MatDialog } from '@angular/material/dialog';
+import { Collaborator } from 'src/app/Model/Collaborator.model';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
 
 @Component({
   selector: 'app-icons',
@@ -13,13 +17,15 @@ export class IconsComponent implements OnInit {
   @Input() notes: any;
   @Input() onAddNote:boolean=false;
   note: Note = new Note();
+  @Input() collabo:any;
   @Output() output: EventEmitter<any> = new EventEmitter();
   time = "8:00 AM";
   repeat = "daily";
   reminder: Note = new Note();
   day = "Today";
   todayString: string = new Date().toDateString();
-  constructor(private snackBar:MatSnackBar,private service:NoteservicesService,) { }
+  colla :Collaborator=new Collaborator();
+  constructor(private snackBar:MatSnackBar,public dialog: MatDialog,private service:NoteservicesService,private collaboratorService:CollaboratorService) { }
   ngOnInit() {
   }
   setRepitation(repeat) {
@@ -52,6 +58,35 @@ export class IconsComponent implements OnInit {
         })
       }
     // }
+  }
+  collaborator() {
+    this.colla.noteId=this.notes.id;
+    const dialogRef = this.dialog.open(CollaboratorComponent, {
+    data: { collab: this.colla ,collaborators:this.collabo},
+      panelClass: 'custom-dialog-container'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    console.log(result.collaborateData);
+      if(result.collaborateData){
+        this.collaboratorService.addCollaborator(result.collaborateData).subscribe(Response => {
+          console.log(Response);
+        });
+      }
+      else if(result.deleteCol){
+        this.collaboratorService.deleteCollaborator(result.deleteCol).subscribe(Response => {
+          console.log(Response);
+          
+        });
+      }
+      else
+      {
+        if(result.collaborateData == undefined)
+        {
+        console.log('No Collaborator Added');
+        }
+      }
+     
+    });
   }
   isArchive()
     {

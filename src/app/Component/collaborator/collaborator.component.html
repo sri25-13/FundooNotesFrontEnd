@@ -1,1 +1,9 @@
-<p>collaborator works!</p>
+<mat-card [ngStyle]="{'background-color' : data.note.color}" class="mat">
+
+    <div class="update">
+        <div>
+            <input class="title" style="border: none; outline: none;font-size:x-large ;"
+                [ngStyle]="{'background-color' : data.note.color}" matInput type="text" class="title"
+                value="{{data.colla.noteId}}" #title>
+        </div>
+    </div>
