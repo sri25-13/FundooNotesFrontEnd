@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
 import {environment} from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class NoteservicesService {
-
+  header = {
+    headers: new HttpHeaders()
+      .set('Authorization',  `Bearer ${localStorage.Token}`)
+  }
   constructor(private http : HttpClient) { }
   createnote(values)
   {
-    return this.http.post(environment.Url+'AddNote',values);
+    var header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${localStorage.Token}`)
+    }
+    return this.http.post(environment.Url+'AddNote',values,header);
   }
   getAllNotes()
   {

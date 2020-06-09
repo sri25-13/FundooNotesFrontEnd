@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
       this.service.Login(details).subscribe(
         (result) => {
           this.snackBar.open('login Successfull', 'Dismiss', { duration: 3000 });
+          console.log('result :', result );
+      localStorage.setItem('Token', result.token);  
           this.route.navigate(['/dashboard/notes']);
         },
         (error) => {

@@ -39,16 +39,15 @@ export class DisplaynoteComponent implements OnInit {
       panelClass: 'custom-dialog-container',
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result.updateData) {
-        this.service.updateNote(result.updateData).subscribe(response => {
-          this.output.emit({name:'getAllNote'});
-          console.log(response);
+      if(result.updateData) {
+         this.service.updateNote(result.updateData).subscribe(response => {
+         this.output.emit({name:'getAllNote'});
+        console.log(response);
         });
         console.log(result.updateData);
       }
     });
   }
-  
     deleteReminder(id) {
       debugger;
       // this.text.id = id;

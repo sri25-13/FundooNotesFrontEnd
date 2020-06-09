@@ -39,6 +39,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatChipsModule} from '@angular/material/chips';
 import { ReminderComponent } from './Component/reminder/reminder.component';
 import { SearchComponent } from './Component/search/search.component';
+import { CollaboratorComponent } from './Component/collaborator/collaborator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { SearchComponent } from './Component/search/search.component';
     ArchiveComponent,
     ReminderComponent,
     SearchComponent,
+    CollaboratorComponent,
   ],
   imports: [
     BrowserModule,

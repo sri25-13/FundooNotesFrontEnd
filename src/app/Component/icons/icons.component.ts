@@ -47,6 +47,7 @@ export class IconsComponent implements OnInit {
         debugger;
         this.service.setReminder(this.notes.noteId, remin).subscribe((result) => {
           console.log(result);
+          this.output.emit({name:'getAllNote'});
           this.snackBar.open('Reminder set', '', { duration: 2000 });
         })
       }

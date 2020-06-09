@@ -1,9 +1,9 @@
 <div>
-  <div fxLayout="row" class="icons">
+  <div class="icons">
     <button mat-icon-button class="button" [matMenuTriggerFor]="remind" matTooltip="Remind me">
     <mat-icon class="icon">add_alert</mat-icon>
     </button>
-    <button mat-icon-button class="button" matTooltip="Collaborator">
+    <button mat-icon-button class="button" matTooltip="Collaborator"  (click)="collaborator()">
     <mat-icon class="icon">person_add</mat-icon>
     </button>
     <button mat-icon-button class="button"  matTooltip="Change color"  [matMenuTriggerFor]="addColors" id="palette">
@@ -20,7 +20,7 @@
   </button>
   </div>
 </div>
-<div fxLayout="row" class="colorclass">
+<div class="colorclass">
   <mat-menu #addColors="matMenu" [overlapTrigger]="false">
       <ng-template matMenuContent>
           <div >
