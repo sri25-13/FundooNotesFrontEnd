@@ -57,7 +57,7 @@ export class IconsComponent implements OnInit {
       console.log(this.notes.noteId);
       this.service.archeive(this.notes.noteId).subscribe(
         (result) => {
-          this.output.emit({name:''});
+           this.output.emit({name:''});
           this.snackBar.open('Archived', 'Dismiss', { duration: 3000 });
         // },
         // (error) => {

@@ -33,34 +33,26 @@
     margin-left: 15px;
 }
 .closecls{
-   
+    margin-left: 95%;
     margin-top: 1px;
-    background-color:whitesmoke;
-    color: black;
     font-weight: 500;
     font-size: medium;
     cursor: pointer;
     display: inline-block;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .box{
 
 display: flex;
 }    
 .cancelclass{
-
-width:20%;
-float: right;
+margin-right: 20%;
 }
 .bottomalign
 {
-    width: 75%;
-float:left;
-    
+ width: 75%;
+ float:left;
 }
 .noteicon{
-    
     left:45%;
     background-color: white;
-    
 }

@@ -40,8 +40,8 @@ export class DisplaynoteComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result.updateData) {
-         this.output.emit({name:'getAllNote'});
         this.service.updateNote(result.updateData).subscribe(response => {
+          this.output.emit({name:'getAllNote'});
           console.log(response);
         });
         console.log(result.updateData);
