@@ -20,34 +20,31 @@ export class NoteservicesService {
   }
   getAllNotes()
   {
-    return this.http.get(environment.Url + 'getallnotes');
+    return this.http.get(environment.Url + 'getallnotes',this.header);
   }
   archeive(id)
   {
-    return this.http.put(environment.Url + 'IsArchive?id='+id,null );
+    return this.http.put(environment.Url + 'IsArchive?id='+id,null,this.header );
   }
-  getnote(value)
-  {
-    return this.http.get(environment.Url + 'getnote',value);
-  }
+  
   setcolor(id,color)
   {
-        return this.http.put(environment.Url + 'ChangeColor?id='+id+'&color='+color,null);
+        return this.http.put(environment.Url + 'ChangeColor?id='+id+'&color='+color,null,this.header);
   }
   sendToTrash(id)
   {
-    return this.http.post(environment.Url + 'Trash?id='+id,null);
+    return this.http.post(environment.Url + 'Trash?id='+id,null,this.header);
   }
   updateNote(val)
   {
     console.log(val);
     debugger;
     
-    return this.http.put(environment.Url +'Update',val);
+    return this.http.put(environment.Url +'Update',val,this.header);
   }
   getTrash()
   {
-    return this.http.get(environment.Url+'trashlist');
+    return this.http.get(environment.Url+'trashlist',this.header);
   }
   getArchive()
   {
@@ -56,20 +53,20 @@ export class NoteservicesService {
   setReminder(id,reminder)
     {
       debugger;
-      return this.http.post(environment.Url+'reminder?id='+id+'&Reminder='+reminder,null);
+      return this.http.post(environment.Url+'reminder?id='+id+'&Reminder='+reminder,null,this.header);
     }
     getReminder()
   {
-    return this.http.get(environment.Url +'GetReminder');
+    return this.http.get(environment.Url +'GetReminder',this.header);
   }
 removeReminder(id)
 {
   debugger;
-  return this.http.delete(environment.Url +'deleteReminder?id='+id);
+  return this.http.delete(environment.Url +'deleteReminder?id='+id,this.header);
 }
 search(values)
 {
   debugger
-  return this.http.get(environment.Url+'search?searchParameter='+values);
+  return this.http.get(environment.Url+'search?searchParameter='+values,this.header);
 }
 }    

@@ -9,7 +9,7 @@
             <mat-chip class="mar">{{data.reminder}}
                 <button matTooltip="Delete Reminder" [ngStyle]="{'background-color' : data.changeColor}"
                     class="reminder" style="border: none;outline: none;">
-                    <mat-icon (click)="deleteReminder(data.noteId)"class="Closebutton">close</mat-icon>
+                <mat-icon (click)="deleteReminder(data.noteId)"class="Closebutton">close</mat-icon>
                 </button>
             </mat-chip>
         </mat-chip-list>
