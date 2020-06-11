@@ -39,7 +39,6 @@ export class NoteservicesService {
   {
     console.log(val);
     debugger;
-    
     return this.http.put(environment.Url +'Update',val,this.header);
   }
   getTrash()
@@ -48,7 +47,7 @@ export class NoteservicesService {
   }
   getArchive()
   {
-    return this.http.get(environment.Url +'GetArchive');
+    return this.http.get(environment.Url +'GetArchive',this.header);
   }
   setReminder(id,reminder)
     {

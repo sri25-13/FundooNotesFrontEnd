@@ -20,19 +20,15 @@
   </button>
   </div>
 </div>
-<div class="colorclass">
+<div >
   <mat-menu #addColors="matMenu" [overlapTrigger]="false">
-      <ng-template matMenuContent>
-          <div >
-              <div *ngFor="let color of colours">
-                  <div *ngFor="let clr of color" >
-                      <button [ngStyle]="{'background-color': clr.color}" mat-mini-fab matTooltip="{{ clr.name }}"
-                          (click)="setColor(clr.color)">
-                      </button>
-                  </div>
-              </div>
-          </div>
-      </ng-template>
+    <div class="mat-menu-content" >
+              <div class="color-row" *ngFor="let color of colours" >
+                      <mat-card *ngFor="let clr of color"  [ngStyle]="{'background-color': clr.color}" matTooltip="{{ clr.name }}"
+                          (click)="setColor(clr.color)" class="mat-color">
+                      </mat-card>
+                 </div>
+                </div>
   </mat-menu>
 </div>
 <mat-menu #moreVert="matMenu">

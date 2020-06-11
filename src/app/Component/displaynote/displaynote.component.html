@@ -1,5 +1,5 @@
-<div class="display">
-    <mat-card [style.width]="width" *ngFor="let data of result" class="box" [ngStyle]="{'background-color':data.changeColor}">
+<div [ngStyle]="{'margin-left.px': margin}" class="display">
+    <mat-card  [style.width]="width" *ngFor="let data of result"  class="box" [ngStyle]="{'background-color':data.changeColor}">
         <div (click)="OnClicktoUpdate(data)" >
         <div> {{data.title}} </div>
         <div > {{data.description}} </div>

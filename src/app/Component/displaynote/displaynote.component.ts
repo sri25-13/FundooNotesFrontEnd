@@ -16,10 +16,12 @@ export class DisplaynoteComponent implements OnInit {
   @Output() output: EventEmitter<any> = new EventEmitter();
   text: string;
   width: any;
+  margin: any;
   constructor(private service: NoteservicesService,private data: DataService,private snackBar:MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.width=this.data.currentMessage.subscribe(message=>this.width=message);
+    this.margin=this.data.currentMessage1.subscribe(message=>this.margin=message);
   }
   getAllNote(){
     this.output.emit('getAllNote');

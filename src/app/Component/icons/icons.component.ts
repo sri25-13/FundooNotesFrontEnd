@@ -17,12 +17,12 @@ export class IconsComponent implements OnInit {
   @Input() notes: any;
   @Input() onAddNote:boolean=false;
   note: Note = new Note();
-  @Input() collabo:any;
   @Output() output: EventEmitter<any> = new EventEmitter();
   time = "8:00 AM";
   repeat = "daily";
   reminder: Note = new Note();
   day = "Today";
+   @Input() collabo:any;
   todayString: string = new Date().toDateString();
   colla :Collaborator=new Collaborator();
   constructor(private snackBar:MatSnackBar,public dialog: MatDialog,private service:NoteservicesService,private collaboratorService:CollaboratorService) { }
@@ -90,16 +90,21 @@ export class IconsComponent implements OnInit {
   }
   isArchive()
     {
+      if(this.onAddNote){
+        this.output.emit({name:'archive'});
+      }
+      else
+      {
       console.log(this.notes.noteId);
       this.service.archeive(this.notes.noteId).subscribe(
         (result) => {
-           this.output.emit({name:''});
+           this.output.emit({name:'getAllNote'});
           this.snackBar.open('Archived', 'Dismiss', { duration: 3000 });
-        // },
-        // (error) => {
-        //   this.snackBar.open('unarcheive', '', { duration: 3000 });
+         },
+         (error) => {
+           this.snackBar.open('unarcheive', '', { duration: 3000 });
       });
-    
+      }
   }
     setColor(changeColor) {
       if(this.onAddNote){
@@ -127,12 +132,16 @@ export class IconsComponent implements OnInit {
         { color: "rgb(251, 188, 4)", name: "Orange" },
         { color: "rgb(255, 244, 117)", name: "Yellow" }
       ],
+
+
       [
         { color: "rgb(204, 255, 144)", name: "Green" },
         { color: "rgb(167, 255, 235)", name: "Teal" },
         { color: "rgb(203, 240, 248)", name: "Blue" },
         { color: "rgb(174, 203, 250)", name: "Dark blue"}
       ],
+
+      
       [
         { color: "rgb(215, 174, 251)", name: "Purple" },
         { color: "rgb(253, 207, 232)", name: "Pink" },

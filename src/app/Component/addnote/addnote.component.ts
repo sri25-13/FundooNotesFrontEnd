@@ -16,7 +16,7 @@ export class AddnoteComponent implements OnInit {
     title:'',
     description:'',
     reminder:'',
-    archive:'',
+    archeive:false,
     changeColor:'',
  };
  backgroundColor:'rgb(255,255,255)'
@@ -32,6 +32,7 @@ export class AddnoteComponent implements OnInit {
   }
    close(title,description)
    {
+     debugger
      this.form.title=title;
      this.form.description=description;
      if(this.form.title!=""|| this.form.description!="")
@@ -42,7 +43,6 @@ export class AddnoteComponent implements OnInit {
         this.snackBar.open('Note created', '', { duration: 3000 });
         this.submit();
       },
-  
       (error) => {
         this.snackBar.open('unable to create note', '', { duration: 3000 });
     });
@@ -55,11 +55,11 @@ export class AddnoteComponent implements OnInit {
      apiCall(event){
        switch(event['name']){
          case 'reminder': this.form.reminder=event['value']
-         
            break;
            case 'changecolor':this.form.changeColor=event['value']
-           debugger
            this.backgroundColor=event.value;
+           break;
+           case 'archive':this.form.archeive=true;
            break;
            
        }

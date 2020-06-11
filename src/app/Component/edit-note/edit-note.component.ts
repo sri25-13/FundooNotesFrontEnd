@@ -12,13 +12,17 @@ export class EditNoteComponent implements OnInit {
   note: Note = new Note();
   ngOnInit(): void {
   }
-  updateNote(title, description, noteId) {
+  updateNote(title, description, noteId,changeColor) {
     this.note.noteId = noteId;
     this.note.description = description;
     this.note.title = title;
+    this.note.changeColor=changeColor;
+    //this.dialogRef.beforeClose({updateData:this.note});
     this.dialogRef.close({ updateData: this.note });
+    this.output.emit({name:'getAllNote'});
+
+  
   }
-  outputFunction(value) {
-    this.dialogRef.close({ res: value });
-  } 
+  
+  
 }  

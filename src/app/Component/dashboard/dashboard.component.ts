@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
   search(value) {
-    this.data.updateSearchtext(value);
+    this.data.updateSearchtext(value)
     this.service.search(value).subscribe(
       searchNotes => {
         this.searchNotes = searchNotes;
@@ -29,10 +29,12 @@ export class DashboardComponent implements OnInit {
     debugger;
     this.view = !this.view
     if (!this.view) {
-      this.data.changegrid('60%');
+      this.data.changegrid('50%');
+      this.data.grid('400');
     }
     else {
-      this.data.changegrid('22%');
+      this.data.changegrid('21%');
+      this.data.grid('200 ');
     }
 
   }

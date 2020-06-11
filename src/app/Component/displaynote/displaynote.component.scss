@@ -10,7 +10,6 @@ margin-right: auto;
 // {
 //     justify-content:space-between;
 // }
-
 .mar
 {
     margin-left: 0mm;
@@ -23,6 +22,7 @@ margin-right: auto;
     outline: none;
     border: none;
     background-color: transparent;
+    visibility: hidden;
 }
 .Closebutton
 {
@@ -30,8 +30,10 @@ margin-right: auto;
     margin-left: 6px;
     margin-right: -12px;
 }
+
+
 .mar:hover{
-  .Closebutton{
+  .reminder{
       visibility: visible;
   }
 }
