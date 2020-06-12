@@ -18,6 +18,7 @@ export class AddnoteComponent implements OnInit {
     reminder:'',
     archeive:false,
     changeColor:'',
+    email:''
  };
  backgroundColor:'rgb(255,255,255)'
   constructor(private snackBar:MatSnackBar,private service:NoteservicesService) { }
@@ -35,6 +36,7 @@ export class AddnoteComponent implements OnInit {
      debugger
      this.form.title=title;
      this.form.description=description;
+     this.form.email=localStorage.getItem('Email');
      if(this.form.title!=""|| this.form.description!="")
      {
      this.service.createnote(this.form).subscribe(

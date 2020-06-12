@@ -5,12 +5,16 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CollaboratorService {
-
+  header = {
+    headers: new HttpHeaders()
+      .set('Authorization',  `Bearer ${localStorage.securityToken}`)
+  }
   constructor(private http : HttpClient) { }
 
 addCollaborator(col)
   {
-    return this.http.post(environment.Url+'api/addColloborator',col);
+    debugger
+    return this.http.post(environment.Url+'api/addcollaborator',col,this.header);
   }
    deleteCollaborator(del)
    {

@@ -11,7 +11,7 @@
                 [ngStyle]="{'background-color' : data.note.changeColor}" matInput type="text" class="titl"
                 value="{{data.note.description}}" #description> </i>
         <div class="icon">
-                <app-icons [notes]="data.note"></app-icons>
+                <app-icons [notes]="data.note" ></app-icons>
                 <div>
             <button mat-button mat-dialog-close (click)="updateNote(title.value, data.note.changeColor,description.value, data.note.noteId)" class="closeButton"
                 id="update" >Close</button>

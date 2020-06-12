@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
         (result) => {
           console.log(result);
           this.snackBar.open('login Successfull', 'Dismiss', { duration: 3000 });
-      localStorage.setItem('securityToken', result['token'].toString());  
+      localStorage.setItem('securityToken', result['token'].toString());
+      localStorage.setItem('Email',details.email);  
           this.route.navigate(['/dashboard/notes']);
         },
         (error) => {

@@ -49,6 +49,7 @@ export class IconsComponent implements OnInit {
       if(this.onAddNote){
         this.output.emit({name:'reminder',value:remin});
       }
+      
       else{
         debugger;
         this.service.setReminder(this.notes.noteId, remin).subscribe((result) => {
@@ -60,7 +61,8 @@ export class IconsComponent implements OnInit {
     // }
   }
   collaborator() {
-    this.colla.noteId=this.notes.id;
+    debugger;
+    this.colla.noteId=this.notes.noteId;
     const dialogRef = this.dialog.open(CollaboratorComponent, {
     data: { collab: this.colla ,collaborators:this.collabo},
       panelClass: 'custom-dialog-container'
@@ -75,7 +77,6 @@ export class IconsComponent implements OnInit {
       else if(result.deleteCol){
         this.collaboratorService.deleteCollaborator(result.deleteCol).subscribe(Response => {
           console.log(Response);
-          
         });
       }
       else
@@ -85,7 +86,6 @@ export class IconsComponent implements OnInit {
         console.log('No Collaborator Added');
         }
       }
-     
     });
   }
   isArchive()

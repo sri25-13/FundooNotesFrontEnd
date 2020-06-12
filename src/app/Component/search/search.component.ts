@@ -13,5 +13,4 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.dataService.searchnote.subscribe(x=>this.result=x);
   }
-
 }

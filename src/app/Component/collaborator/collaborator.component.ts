@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit,Inject, Input } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Collaborator } from 'src/app/Model/Collaborator.model';
 @Component({
@@ -7,16 +7,32 @@ import { Collaborator } from 'src/app/Model/Collaborator.model';
   styleUrls: ['./collaborator.component.scss']
 })
 export class CollaboratorComponent implements OnInit {
-  colla :Collaborator=new Collaborator();
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public dialogRef: MatDialogRef<CollaboratorComponent>) { }
+  colla : Collaborator = new Collaborator();
+  email= localStorage.getItem('Email');
+  name=localStorage.getItem('FullName');
+  @Input() notes: any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+  public dialogRef: MatDialogRef<CollaboratorComponent>) { }
 
   ngOnInit() {
   }
-  updateNote(noteId,senderEmail,receiverEmail) {
+  save(email, noteId) {
+    debugger
+    console.log(email,noteId);
     this.colla.noteId = noteId;
-    this.colla.senderEmail = senderEmail;
-    this.colla.receiverEmail = receiverEmail;
-    this.dialogRef.close({ updateData: this.colla });
+    if (email != null && noteId != null) {
+      this.colla.senderEmail=localStorage.getItem('Email');
+      this.colla.receiverEmail = email;
+      this.dialogRef.close({ collaborateData: this.colla });
+    }
+    else if (email != null && noteId == null) {
+      this.dialogRef.close({ email: email });
+    }
+    else
+      console.log("error");
   }
-
+  deleteCollaborator(id){
+    this.colla.id=id
+    this.dialogRef.close({ deleteCol: id});
+  }
 }

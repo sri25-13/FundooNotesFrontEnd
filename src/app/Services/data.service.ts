@@ -17,7 +17,7 @@ public shareSearchText=this.searchText.asObservable();
     debugger
    this.messageSource.next(text);
   }
-  grid(text) {
+  grid(text) { 
     debugger
    this.messageSource1.next(text);
   }

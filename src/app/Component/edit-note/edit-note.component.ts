@@ -10,6 +10,14 @@ export class EditNoteComponent implements OnInit {
   @Output() output: EventEmitter<any> = new EventEmitter();
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,public dialogRef: MatDialogRef<EditNoteComponent>) { }
   note: Note = new Note();
+  form={
+    title:'',
+    description:'',
+    reminder:'',
+    archeive:false,
+    changeColor:'',
+ };
+ backgroundColor:'rgb(255,255,255)'
   ngOnInit(): void {
   }
   updateNote(title, description, noteId,changeColor) {
@@ -19,10 +27,5 @@ export class EditNoteComponent implements OnInit {
     this.note.changeColor=changeColor;
     //this.dialogRef.beforeClose({updateData:this.note});
     this.dialogRef.close({ updateData: this.note });
-    this.output.emit({name:'getAllNote'});
-
-  
   }
-  
-  
-}  
+}

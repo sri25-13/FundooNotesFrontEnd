@@ -1,9 +1,35 @@
-<mat-card [ngStyle]="{'background-color' : data.note.color}" class="mat">
-
-    <div class="update">
+<mat-card style="height:auto;width: 380px;">
+    <mat-card-title>
+        <strong>Collaborators</strong>
+    </mat-card-title>
+    <mat-divider class="divider"></mat-divider>
+    <br>
+    <div class="mb">
         <div>
-            <input class="title" style="border: none; outline: none;font-size:x-large ;"
-                [ngStyle]="{'background-color' : data.note.color}" matInput type="text" class="title"
-                value="{{data.colla.noteId}}" #title>
+            <!-- <img *ngIf="userData.profileImage!=null" src="assets/{{userData.profileImage}}"> -->
+            <strong>{{name}}</strong>(Owner)
         </div>
+        {{email}}
     </div>
+    
+            <div *ngFor="let col of data.collaborators"  class="display">
+                <div *ngIf="data.collab.noteId == col.noteId">
+                    {{col.receiverEmail}}
+                    <button class="icon" mat-icon-button matTooltip="Delete" (click)="deleteCollaborator(col.id)">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
+            </div>
+    <div class="person">
+        <mat-icon>person_add</mat-icon>
+        <input matInput class="inputs" placeholder="Email to share with" value="" #userEmail> 
+    </div>
+
+    <div class="align">
+        {{data.collab.noteId}}
+        <button class="cancelbutton" mat-dialog-close mat-button mat-dialog-close class="button">Cancel</button>
+        <button mat-dialog-close mat-button class="button"
+         (click)="save(userEmail.value, data.collab.noteId)">Save</button>
+    </div>
+
+</mat-card>

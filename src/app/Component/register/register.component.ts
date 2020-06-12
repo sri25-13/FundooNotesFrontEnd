@@ -38,6 +38,7 @@ export class RegisterComponent implements OnInit {
         (result) => {
           this.snackBar.open('Registered Successfully', 'Dismiss', { duration: 3000 });
           this.route.navigate(['/login']);
+          localStorage.setItem('FullName',form.firstName +form.lastName);
         },
     
         (error) => {

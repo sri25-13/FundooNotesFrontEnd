@@ -13,6 +13,7 @@ import { DataService } from 'src/app/Services/data.service';
 export class DisplaynoteComponent implements OnInit {
   @Input() result:any;
   @Input() notes: Note = new Note();
+  @Input() collaborator:any;
   @Output() output: EventEmitter<any> = new EventEmitter();
   text: string;
   width: any;
