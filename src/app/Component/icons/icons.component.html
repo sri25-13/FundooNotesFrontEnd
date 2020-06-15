@@ -33,7 +33,22 @@
 </div>
 <mat-menu #moreVert="matMenu">
   <button *ngIf="!onCreateNote" mat-menu-item id="deleteNote" (click)="deleteNote()" >Delete Note</button>
+  <button mat-menu-item [matMenuTriggerFor]="addLabel" id="label">Add Label</button>
 </mat-menu>
+<div>
+  <mat-menu #addLabel="matMenu" (click)="$event.stopPropagation();">
+      <mat-card (click)="$event.stopPropagation();">
+          Label Note
+          <input id="label_text" matInput placeholder="Enter label name" value="" #label>
+          <mat-divider></mat-divider>
+          <div *ngFor="let label of labels">
+              <mat-checkbox (change)="newLabel(label.labelName)"></mat-checkbox>{{label.labelname}}
+          </div>
+          <button *ngIf="label.value!=''" mat-button (click)="newLabel(label.value)" id="create">+ Create
+              "{{label.value}}"</button>
+      </mat-card>
+  </mat-menu>
+</div>
 <mat-menu #remind="matMenu">
   <mat-card>
       <div>

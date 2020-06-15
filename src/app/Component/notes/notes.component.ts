@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NoteservicesService } from 'src/app/Services/noteservices.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DataService } from 'src/app/Services/data.service';
+import { CollaboratorService } from 'src/app/Services/collaborator.service';
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
@@ -10,7 +11,8 @@ import { DataService } from 'src/app/Services/data.service';
 export class NotesComponent implements OnInit {
   listOfNotes: any=[];
   searchText:string;
-  constructor(private service:NoteservicesService,private dataService:DataService,private snackBar:MatSnackBar) { }
+  listofCollab:any=[];
+  constructor(private service:NoteservicesService,private collabService:CollaboratorService,private dataService:DataService,private snackBar:MatSnackBar) { }
 getAllNote()
 {
   this.service.getAllNotes().subscribe(
@@ -19,8 +21,21 @@ getAllNote()
     console.log(this.listOfNotes);
     });
 }
+getAllCollaborator()
+{
+  this.collabService.getAllcollaborators().subscribe(
+    listofCollab=>{
+      this.listofCollab=listofCollab;
+      console.log(this.listofCollab);
+    });
+}
+getoutput()
+{
+  this.getAllNote();
+  this.getAllCollaborator();
+}
   ngOnInit() {
     this.dataService.shareSearchText.subscribe(x=>this.searchText=x);
-    this.getAllNote();
+    this.getoutput();
   }
 }

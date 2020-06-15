@@ -32,6 +32,7 @@ export class CollaboratorComponent implements OnInit {
       console.log("error");
   }
   deleteCollaborator(id){
+    debugger;
     this.colla.id=id
     this.dialogRef.close({ deleteCol: id});
   }

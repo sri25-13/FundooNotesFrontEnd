@@ -40,6 +40,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { ReminderComponent } from './Component/reminder/reminder.component';
 import { SearchComponent } from './Component/search/search.component';
 import { CollaboratorComponent } from './Component/collaborator/collaborator.component';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +84,9 @@ import { CollaboratorComponent } from './Component/collaborator/collaborator.com
    MatDatepickerModule,
    MatSelectModule,
    MatNativeDateModule,
-   MatChipsModule
+   MatChipsModule,
+   MatDividerModule,
+   MatCheckboxModule
   ],
   entryComponents:[EditNoteComponent, CollaboratorComponent],
   providers: [UserService,NoteservicesService],

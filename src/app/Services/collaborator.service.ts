@@ -18,6 +18,11 @@ addCollaborator(col)
   }
    deleteCollaborator(del)
    {
-     return this.http.put(environment.Url+'api/deleteCollaborator?id='+del,null);
+     debugger
+     return this.http.delete(environment.Url+'api/deleteCollaborator?id='+del,this.header);
+   }
+   getAllcollaborators()
+   {
+     return this.http.get(environment.Url+'getallcollaborators',this.header);
    }
   }

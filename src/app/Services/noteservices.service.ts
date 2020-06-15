@@ -18,6 +18,14 @@ export class NoteservicesService {
     }
     return this.http.post(environment.Url+'AddNote',values,header);
   }
+  addLabel(values)
+  {
+    return this.http.post(environment.Url+'AddLabel',values,this.header);
+  }
+  deleteLabel(id)
+  {
+    return this.http.delete(environment.Url+'Deletelabel?id='+id,this.header);
+  }
   getAllNotes()
   {
     return this.http.get(environment.Url + 'getallnotes',this.header);

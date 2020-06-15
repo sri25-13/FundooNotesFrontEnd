@@ -11,24 +11,23 @@
         </div>
         {{email}}
     </div>
-    
+    <div>
             <div *ngFor="let col of data.collaborators"  class="display">
-                <div *ngIf="data.collab.noteId == col.noteId">
+                 <div *ngIf="data.collab.noteId == col.noteId"> 
                     {{col.receiverEmail}}
                     <button class="icon" mat-icon-button matTooltip="Delete" (click)="deleteCollaborator(col.id)">
                         <mat-icon>close</mat-icon>
                     </button>
                 </div>
-            </div>
+             </div> 
+    </div>
     <div class="person">
         <mat-icon>person_add</mat-icon>
         <input matInput class="inputs" placeholder="Email to share with" value="" #userEmail> 
     </div>
-
     <div class="align">
         <button class="cancelbutton" mat-dialog-close mat-button mat-dialog-close class="button">Cancel</button>
         <button mat-dialog-close mat-button class="button"
-         (click)="save(userEmail.value, data.collab.noteId)">Save</button>
+        (click)="save(userEmail.value, data.collab.noteId)">Save</button>
     </div>
-
 </mat-card>

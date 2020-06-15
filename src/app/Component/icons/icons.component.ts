@@ -7,6 +7,7 @@ import { CollaboratorService } from 'src/app/Services/collaborator.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Collaborator } from 'src/app/Model/Collaborator.model';
 import { CollaboratorComponent } from '../collaborator/collaborator.component';
+import { Label } from 'src/app/Model/label.model';
 
 @Component({
   selector: 'app-icons',
@@ -17,6 +18,8 @@ export class IconsComponent implements OnInit {
   @Input() notes: any;
   @Input() onAddNote:boolean=false;
   note: Note = new Note();
+  @Input() labels:any;
+  label: Label = new Label();
   @Output() output: EventEmitter<any> = new EventEmitter();
   time = "8:00 AM";
   repeat = "daily";
@@ -27,6 +30,16 @@ export class IconsComponent implements OnInit {
   colla :Collaborator=new Collaborator();
   constructor(private snackBar:MatSnackBar,public dialog: MatDialog,private service:NoteservicesService,private collaboratorService:CollaboratorService) { }
   ngOnInit() {
+  }
+  newLabel(labelname) {
+    if (labelname != null && labelname != '') {
+      this.label.labelname = labelname;
+      this.label.noteId = this.notes.noteId;
+      this.label.email=localStorage.getItem('Email');
+      this.service.addLabel(this.label).subscribe(Response => {
+        console.log(Response);
+      });
+    }
   }
   setRepitation(repeat) {
     this.repeat = repeat;
@@ -72,11 +85,13 @@ export class IconsComponent implements OnInit {
       if(result.collaborateData){
         this.collaboratorService.addCollaborator(result.collaborateData).subscribe(Response => {
           console.log(Response);
+          this.output.emit({name:'getAllNote'});
         });
       }
       else if(result.deleteCol){
         this.collaboratorService.deleteCollaborator(result.deleteCol).subscribe(Response => {
           console.log(Response);
+          this.output.emit({name:'getAllNote'});
         });
       }
       else

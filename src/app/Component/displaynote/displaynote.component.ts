@@ -15,6 +15,7 @@ export class DisplaynoteComponent implements OnInit {
   @Input() notes: Note = new Note();
   @Input() collaborator:any;
   @Output() output: EventEmitter<any> = new EventEmitter();
+  @Input() note:any;
   text: string;
   width: any;
   margin: any;
@@ -68,4 +69,3 @@ export class DisplaynoteComponent implements OnInit {
       );
     }
   }
-
