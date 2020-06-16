@@ -1,5 +1,5 @@
 <app-search *ngIf='searchText!=""; else elseBlock'></app-search>
 <ng-template #elseBlock>
     <app-addnote (output)="getAllNote()"></app-addnote>
-    <app-displaynote [collaborator]="listofCollab" [result]="listOfNotes" (output)="getAllNote()"  ></app-displaynote>    
+    <app-displaynote [labels]="listOfLabels" [collaborator]="listofCollab" [result]="listOfNotes" (output)="getAllNote()" (notify)="getAllLabels()"></app-displaynote>    
 </ng-template>

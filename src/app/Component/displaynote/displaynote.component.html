@@ -14,6 +14,18 @@
             </mat-chip>
         </mat-chip-list>
     </div>
-            <app-icons [notes]="data" [collabo]="collaborator" (output)="getAllNote()"></app-icons>
+    <div *ngFor="let label of labels">
+        <div *ngIf="label.noteId == data.noteId">
+            <mat-chip-list>
+                <mat-chip class="mar"> {{label.labelName}}
+                    <button matTooltip="Delete Label" [ngStyle]="{'background-color' : data.changeColor}"
+                        class="reminder" style="border: none;outline: none;">
+                        <mat-icon (click)="deleteLabel(label.labelId)" class="Closebutton">close</mat-icon>
+                    </button>
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+    </div>
+            <app-icons [notes]="data" [collabo]="collaborator" [labels]="labels" (output)="getAllNote()"></app-icons>
     </mat-card>
 </div>

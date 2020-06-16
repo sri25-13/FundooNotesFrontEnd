@@ -3,7 +3,7 @@
     <button mat-icon-button class="button" [matMenuTriggerFor]="remind" matTooltip="Remind me">
     <mat-icon class="icon">add_alert</mat-icon>
     </button>
-    <button mat-icon-button class="button" matTooltip="Collaborator"  (click)="collaborator()">
+    <button mat-icon-button class="button"   (click)="collaborator()">
     <mat-icon class="icon">person_add</mat-icon>
     </button>
     <button mat-icon-button class="button"  matTooltip="Change color"  [matMenuTriggerFor]="addColors" id="palette">
@@ -40,9 +40,8 @@
       <mat-card (click)="$event.stopPropagation();">
           Label Note
           <input id="label_text" matInput placeholder="Enter label name" value="" #label>
-          <mat-divider></mat-divider>
           <div *ngFor="let label of labels">
-              <mat-checkbox (change)="newLabel(label.labelName)"></mat-checkbox>{{label.labelname}}
+              <mat-checkbox (change)="newLabel(label.labelName)"></mat-checkbox>{{label.labelName}}
           </div>
           <button *ngIf="label.value!=''" mat-button (click)="newLabel(label.value)" id="create">+ Create
               "{{label.value}}"</button>

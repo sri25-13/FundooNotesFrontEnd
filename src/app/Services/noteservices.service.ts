@@ -24,7 +24,12 @@ export class NoteservicesService {
   }
   deleteLabel(id)
   {
+    debugger;
     return this.http.delete(environment.Url+'Deletelabel?id='+id,this.header);
+  }
+  getallLabels()
+  {
+    return this.http.get(environment.Url +'api/getalllabels',this.header);
   }
   getAllNotes()
   {

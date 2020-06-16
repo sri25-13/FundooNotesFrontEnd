@@ -21,6 +21,7 @@ export class IconsComponent implements OnInit {
   @Input() labels:any;
   label: Label = new Label();
   @Output() output: EventEmitter<any> = new EventEmitter();
+  @Output() notify: EventEmitter<any> = new EventEmitter();
   time = "8:00 AM";
   repeat = "daily";
   reminder: Note = new Note();
@@ -32,12 +33,14 @@ export class IconsComponent implements OnInit {
   ngOnInit() {
   }
   newLabel(labelname) {
+    debugger
     if (labelname != null && labelname != '') {
       this.label.labelname = labelname;
       this.label.noteId = this.notes.noteId;
       this.label.email=localStorage.getItem('Email');
-      this.service.addLabel(this.label).subscribe(Response => {
+      this.service.addLabel(this.label).subscribe((Response) => {
         console.log(Response);
+        this.notify.emit('done');
       });
     }
   }

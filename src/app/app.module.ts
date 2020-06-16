@@ -42,6 +42,7 @@ import { SearchComponent } from './Component/search/search.component';
 import { CollaboratorComponent } from './Component/collaborator/collaborator.component';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { LabelComponent } from './Component/label/label.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ReminderComponent,
     SearchComponent,
     CollaboratorComponent,
+    LabelComponent,
   ],
   imports: [
     BrowserModule,

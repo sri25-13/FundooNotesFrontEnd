@@ -5,6 +5,7 @@ import { Note } from 'src/app/Model/notes.model';
 import { EditNoteComponent } from '../edit-note/edit-note.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DataService } from 'src/app/Services/data.service';
+import { debug } from 'util';
 @Component({
   selector: 'app-displaynote',
   templateUrl: './displaynote.component.html',
@@ -14,7 +15,9 @@ export class DisplaynoteComponent implements OnInit {
   @Input() result:any;
   @Input() notes: Note = new Note();
   @Input() collaborator:any;
+  @Input() labels:any;
   @Output() output: EventEmitter<any> = new EventEmitter();
+  @Output() notify:EventEmitter<any>=new EventEmitter();
   @Input() note:any;
   text: string;
   width: any;
@@ -28,12 +31,15 @@ export class DisplaynoteComponent implements OnInit {
   getAllNote(){
     this.output.emit('getAllNote');
   }
+  getoutput()
+  {
+    this.notify.emit('done');
+  }
   // getID(data)
   // {
   // debugger;
   // this.note=data.noteId;
   // console.log(this.note);
-
   // }
   OnClicktoUpdate(result) {
     const dialogRef = this.dialog.open(EditNoteComponent, {
@@ -50,6 +56,20 @@ export class DisplaynoteComponent implements OnInit {
         });
         console.log(result.updateData);
       }
+    });
+  }
+  deleteLabel(id)
+  {
+    this.service.deleteLabel(id).subscribe((result)=>
+    {
+      debugger
+      console.log('result',result);
+      this.snackBar.open('Label Deleted','',{duration : 2000});
+      this.notify.emit('done');
+    },
+    (error)=>
+    {
+      console.log('error',error);
     });
   }
     deleteReminder(id) {
