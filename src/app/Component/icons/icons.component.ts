@@ -88,13 +88,13 @@ export class IconsComponent implements OnInit {
       if(result.collaborateData){
         this.collaboratorService.addCollaborator(result.collaborateData).subscribe(Response => {
           console.log(Response);
-          this.output.emit({name:'getAllNote'});
+          this.notify.emit('done');
         });
       }
       else if(result.deleteCol){
         this.collaboratorService.deleteCollaborator(result.deleteCol).subscribe(Response => {
           console.log(Response);
-          this.output.emit({name:'getAllNote'});
+          this.notify.emit('done');
         });
       }
       else
